@@ -12,12 +12,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 // Ajouter une nouvelle tâche
 router.post("/", async (req, res) => {
   try {
-    console.log(req.body);
-
+    // Récupération des données du formulaire
     const { 
       titre, 
       description, 
@@ -30,8 +28,6 @@ router.post("/", async (req, res) => {
       sousTaches, 
       commentaires 
     } = req.body;
-
-    console.log("On est ici");
 
     // Création de la tâche dans MongoDB
     const newTask = new Task({
@@ -54,7 +50,7 @@ router.post("/", async (req, res) => {
       })) : [],
     });
 
-    await newTask.save(); // Sauvegarde en base
+    await newTask.save(); // ICI on sauvegarde ds base
 
     console.log("Tâche ajoutée:");
     res.redirect("/"); // Redirige vers la page d'accueil après l'ajout
@@ -62,7 +58,26 @@ router.post("/", async (req, res) => {
     console.error("Erreur lors de l'ajout de la tâche:", err);
     res.status(500).send("Erreur serveur");
   }
-
 });
+
+// Route pour afficher le formulaire d'ajout de tâche
+router.get("/new", (req, res) => {
+  res.render("newTask"); // Affiche la page du formulaire
+});
+
+// Route pour supprimer une tâche
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params; // Récupérer l'ID de la tâche à supprimer
+    await Task.findByIdAndDelete(id); // Supprimer la tâche dans MongoDB
+
+      console.log("Tâche supprimée:");
+    res.status(200).json({ message: "Tâche supprimée avec succès" }); // Répond avec un message JSON
+  } catch (err) {
+    console.error("Erreur lors de la suppression de la tâche:", err);
+    res.status(500).send("Erreur serveur");
+  }
+});
+
 
 module.exports = router;

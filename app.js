@@ -34,33 +34,13 @@ app.use(express.static(path.join(__dirname, "public")));
 // Route principale, on rend la vue index.ejs
 app.get("/", async (req, res) => {
   try {
-    const tasks = await Task.find(); // Récupérer les tâches depuis MongoDB
-    res.render("index", { tasks }); // Passer les tâches à la vue
+    const tasks = await Task.find();
+    res.render("index", { tasks }); 
   } catch (err) {
     console.error("Erreur lors de la récupération des tâches:", err);
     res.status(500).send("Erreur serveur");
   }
 });
-
-// Route pour afficher le formulaire d'ajout de tâche
-app.get("/tasks/new", (req, res) => {
-  res.render("newTask"); // Affiche la page du formulaire
-});
-
-// Route pour supprimer une tâche
-app.delete("/tasks/:id", async (req, res) => {
-  try {
-    const { id } = req.params; // Récupérer l'ID de la tâche à supprimer
-    await Task.findByIdAndDelete(id); // Supprimer la tâche dans MongoDB
-
-      console.log("Tâche supprimée:");
-    res.status(200).json({ message: "Tâche supprimée avec succès" }); // Répond avec un message JSON
-  } catch (err) {
-    console.error("Erreur lors de la suppression de la tâche:", err);
-    res.status(500).send("Erreur serveur");
-  }
-});
-
 
 // ICI on démar le serveur
 const PORT = process.env.PORT || 5000;

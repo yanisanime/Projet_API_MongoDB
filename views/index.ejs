@@ -8,9 +8,7 @@
   <h1>Gestionnaire de Tâches</h1>
   
   <!-- On redirig l'utilisateur vers le formulaire d'ajout -->
-  <a href="/tasks/new">
-    <button id="addTaskBtn">Ajouter une tâche</button>
-  </a>
+  <button id="addTaskBtn" onclick="location.href='/tasks/new'">Ajouter une tâche</button>
 
   <div id="taskContainer">
     <% if (tasks && tasks.length > 0) { %>

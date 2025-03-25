@@ -4,7 +4,6 @@ body {
   padding: 20px;
   display: flex;
   justify-content: center;
-  min-height: 100vh;
   flex-direction: column;
   margin: 0;
 }
@@ -40,7 +39,6 @@ label {
 input,
 textarea,
 select {
-  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -62,6 +60,7 @@ fieldset {
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 10px;
+  display: grid;
 }
 
 legend {
@@ -135,6 +134,7 @@ button:hover {
   border: none;
   cursor: pointer;
   margin: 20px;
+  width: 200px;
 }
 
 #taskContainer {

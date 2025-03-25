@@ -13,6 +13,9 @@ app.use(cors());
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views')); // Là, j'indique où se trouvent les fichiers de vue  
 
+//Cela permet à Express d'interpréter les données envoyées via le formulaire POST
+app.use(express.urlencoded({ extended: true }));
+
 
 // Connexion à MongoDB
 mongoose
@@ -25,7 +28,7 @@ mongoose
 const taskRoutes = require("./routes/taskRoutes");
 app.use("/tasks", taskRoutes);
 
-// Serveur statique, ici on sert le fichier index.html par défaut 
+// Serveur statique, ici on sert le fichier index.ejs par défaut 
 app.use(express.static(path.join(__dirname, "public")));
 
 // Route principale, on rend la vue index.ejs
@@ -38,6 +41,27 @@ app.get("/", async (req, res) => {
     res.status(500).send("Erreur serveur");
   }
 });
+
+// Route pour afficher le formulaire d'ajout de tâche
+app.get("/tasks/new", (req, res) => {
+  res.render("newTask"); // Affiche la page du formulaire
+});
+
+// Route pour supprimer une tâche
+app.delete("/tasks/:id", async (req, res) => {
+  try {
+    const { id } = req.params; // Récupérer l'ID de la tâche à supprimer
+    await Task.findByIdAndDelete(id); // Supprimer la tâche dans MongoDB
+
+      console.log("Tâche supprimée:");
+    res.redirect("/"); //on actualise
+  } catch (err) {
+    console.error("Erreur lors de la suppression de la tâche:", err);
+    res.status(500).send("Erreur serveur");
+  }
+});
+
+
 // ICI on démar le serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Serveur démarré sur le port ${PORT}`));

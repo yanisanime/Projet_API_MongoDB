@@ -2,12 +2,15 @@
 <html>
 <head>
   <title>Gestionnaire de tâches</title>
-  <link rel="stylesheet" href="/css/style.css"> <!-- Chemin corrigé pour les fichiers statiques -->
+  <link rel="stylesheet" href="css/styles.css"> 
 </head>
 <body>
   <h1>Gestionnaire de Tâches</h1>
   
-  <button id="addTaskBtn">Ajouter une tâche</button>
+  <!-- On redirig l'utilisateur vers le formulaire d'ajout -->
+  <a href="/tasks/new">
+    <button id="addTaskBtn">Ajouter une tâche</button>
+  </a>
 
   <div id="taskContainer">
     <% if (tasks && tasks.length > 0) { %>
@@ -25,6 +28,6 @@
     <% } %>
   </div>
 
-  <script src="/js/script.js"></script> <!-- Chemin corrigé pour le fichier script.js -->
+  <script src="/js/script.js"></script>
 </body>
 </html>

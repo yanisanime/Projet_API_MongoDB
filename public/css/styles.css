@@ -1,13 +1,132 @@
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f5f5f5;
+  background-color: #f4f4f4;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
 }
 
 h1 {
   color: #333;
+  text-align: center; /* Centre horizontalement */
+  margin: 40px; /* Supprime les marges par défaut */
 }
+
+/* Conteneur du formulaire */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: auto; /* Centre horizontalement */
+}
+
+/* Labels */
+label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Champs de saisie */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Style des fieldset (sections) */
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+legend {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Bouton de soumission */
+button {
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Bouton d'ajout des sous-tâches */
+#ajouterSousTache {
+  background-color: #007bff;
+}
+
+#ajouterSousTache:hover {
+  background-color: #0056b3;
+}
+
+/* Lien de retour */
+.BtnRettour {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.BtnRettour a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.BtnRettour a:hover {
+  background-color: #bd2130;
+}
+
+/* Sous-tâches */
+.sousTache {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Pour la page d'accueil pour afficher les tache  */
 
 #addTaskBtn {
   padding: 10px 20px;

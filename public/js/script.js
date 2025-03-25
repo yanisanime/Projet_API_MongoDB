@@ -45,19 +45,50 @@ function deleteTask(id) {
         .catch(error => console.error("Erreur lors de la suppression:", error));
 }
 
-// Ajouter une tâche
-document.getElementById("addTaskBtn").addEventListener("click", () => {
-    const titre = prompt("Titre de la tâche :");
-    const description = prompt("Description de la tâche :");
-    const echeance = prompt("Date d'échéance (YYYY-MM-DD) :");
 
-    if (titre && echeance) {
-        fetch("http://localhost:5000/tasks", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ titre, description, echeance, statut: "à faire" })
-        })
-        .then(() => fetchTasks()) // Recharger la liste après ajout
-        .catch(error => console.error("Erreur lors de l'ajout:", error));
-    }
-});
+
+
+// Ajouter une sous tâche
+
+document.getElementById('ajouterSousTache').addEventListener('click', function () {
+    const container = document.getElementById('sousTachesContainer');
+    const index = container.children.length;
+
+    const sousTacheDiv = document.createElement('div');
+    sousTacheDiv.classList.add('sousTache');
+
+    sousTacheDiv.innerHTML = `
+      <label for="sousTacheTitre">Titre:</label>
+      <input type="text" name="sousTaches[${index}][titre]" required>
+
+      <label for="sousTacheStatut">Statut:</label>
+      <select name="sousTaches[${index}][statut]">
+        <option value="à faire">À faire</option>
+        <option value="en cours">En cours</option>
+        <option value="terminée">Terminée</option>
+        <option value="annulée">Annulée</option>
+      </select>
+
+      <label for="sousTacheEcheance">Échéance:</label>
+      <input type="date" name="sousTaches[${index}][echeance]">
+    `;
+
+    container.appendChild(sousTacheDiv);
+  });
+
+
+  function deleteTask(id) {
+    fetch(`/tasks/${id}`, { method: "DELETE" }) // Envoie une requête DELETE à la route du serveur
+      .then(response => {
+        if (response.ok) {
+          console.log(`Tâche ${id} supprimée`);
+          document.location.reload(); // Recharge la page pour mettre à jour la liste des tâches
+        } else {
+          console.error('Erreur lors de la suppression de la tâche');
+        }
+      })
+      .catch(error => {
+        console.error('Erreur:', error);
+      });
+  }
+  

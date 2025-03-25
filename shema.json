@@ -1,0 +1,90 @@
+{
+    "type": "object",
+    "properties":
+    {
+        "titre": { "type": "string" },
+        "description": { "type": "string" },
+        "dateCreation": { "type": "string", "format": "date" },
+        "echeance": { "type": "string", "format": "date" },
+        "statut": 
+        {
+            "type": "string",
+            "enum": ["à faire", "en cours", "terminée", "annulée"]
+        },
+        "priorite":
+        {
+            "type": "string",
+            "enum": ["basse", "moyenne", "haute", "critique"]
+        },
+        "auteur":"object",
+        "properties":
+        {
+            "nom": { "type": "string" },
+            "prenom": { "type": "string" },
+            "email": { "type": "string" }
+        },
+        "categorie":
+        {
+            "type": "string",
+            "enum": ["travail", "personnel", "autre"]
+        },
+        "etiquettes":
+        {
+            "type": "array",
+            "items": { "type": "string" }
+        },
+        "sousTaches":
+        {
+            "type": "array",
+            "items":
+            {
+                "type": "object",
+                "properties":
+                {
+                    "titre": { "type": "string" },
+                    "statut": 
+                    {
+                        "type": "string",
+                        "enum": ["à faire", "en cours", "terminée", "annulée"]
+                    },
+                    "echeance": { "type": "string", "format": "date" }
+                }
+            }
+        },
+        "commentaires":
+        {
+            "type": "array",
+            "items":
+            {
+                "type": "object",
+                "properties":
+                {
+                    "auteur": "object",
+                    "properties":
+                    {
+                        "nom": { "type": "string" },
+                        "prenom": { "type": "string" },
+                        "email": { "type": "string" }
+                    },
+                    "contenu": { "type": "string" },
+                    "date": { "type": "string", "format": "date" }
+                }
+            }
+        },
+        "historiqueModification":
+        {
+            "type": "array",
+            "items":
+            {
+                "type": "object",
+                "properties":
+                {
+                    "champModifie": { "type": "string" },
+                    "ancienneValeur": { "type": "string" },
+                    "nouvelleValeur": { "type": "string" },
+                    "date": { "type": "string", "format": "date" }
+                }
+            }
+        }
+    }
+}

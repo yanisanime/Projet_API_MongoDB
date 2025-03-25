@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gestionnaire de tâches</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- Chemin corrigé pour les fichiers statiques -->
+</head>
+<body>
+  <h1>Gestionnaire de Tâches</h1>
+  
+  <button id="addTaskBtn">Ajouter une tâche</button>
+
+  <div id="taskContainer">
+    <% if (tasks && tasks.length > 0) { %>
+      <% tasks.forEach(task => { %>
+        <div class="task">
+          <h3><%= task.titre %></h3>
+          <p><%= task.description %></p>
+          <p><strong>Échéance:</strong> <%= new Date(task.echeance).toLocaleDateString() %></p>
+          <p><strong>Statut:</strong> <%= task.statut %></p>
+          <button onclick="deleteTask('<%= task._id %>')">Supprimer</button>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p id="emptyMessage">Aucune tâche pour le moment.</p>
+    <% } %>
+  </div>
+
+  <script src="/js/script.js"></script> <!-- Chemin corrigé pour le fichier script.js -->
+</body>
+</html>

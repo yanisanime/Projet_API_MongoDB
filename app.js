@@ -54,7 +54,7 @@ app.delete("/tasks/:id", async (req, res) => {
     await Task.findByIdAndDelete(id); // Supprimer la tâche dans MongoDB
 
       console.log("Tâche supprimée:");
-    res.redirect("/"); //on actualise
+    res.status(200).json({ message: "Tâche supprimée avec succès" }); // Répond avec un message JSON
   } catch (err) {
     console.error("Erreur lors de la suppression de la tâche:", err);
     res.status(500).send("Erreur serveur");

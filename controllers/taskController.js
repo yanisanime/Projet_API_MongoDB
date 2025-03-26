@@ -87,6 +87,7 @@ exports.updateTask = async (req, res) => {
       }
   
       res.json(updatedTask);
+      res.redirect("/"); // Rediriger vers la page d'accueil
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

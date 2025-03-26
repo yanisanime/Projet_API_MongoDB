@@ -92,3 +92,16 @@ exports.updateTask = async (req, res) => {
     }
   };
   
+
+exports.editTask = async (req, res) => {
+    try {
+        const task = await Task.findById(req.params.id);
+        if (!task) {
+        return res.status(404).json({ message: "Tâche non trouvée" });
+        }
+        res.render("editTask", { task });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
+

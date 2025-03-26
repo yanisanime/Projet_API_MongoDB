@@ -10,8 +10,11 @@ router.get("/new", (req, res) => {
 // Routes CRUD pour les tâches
 router.get("/", taskController.getTasks);
 router.post("/", taskController.createTask);
+router.get("/edit/:id", taskController.editTask);
+router.post("/edit/:id", taskController.updateTask);
 router.get("/:id", taskController.getTaskById);
-router.put("/:id", taskController.updateTask);
+//router.put("/:id", taskController.updateTask);
 router.delete("/:id", taskController.deleteTask);
+
 
 module.exports = router;

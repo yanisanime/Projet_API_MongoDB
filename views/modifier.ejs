@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier une Tâche</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Modifier la Tâche</h1>
+    
+    <form action="/tasks/edit/<%= task._id %>" method="POST">
+      <label for="titre">Titre :</label>
+      <input type="text" id="titre" name="titre" value="<%= task.titre %>" required>
+
+      <label for="description">Description :</label>
+      <textarea id="description" name="description" required><%= task.description %></textarea>
+
+      <label for="echeance">Échéance :</label>
+      <input type="date" id="echeance" name="echeance" value="<%= new Date(task.echeance).toISOString().split('T')[0] %>">
+
+      <label for="statut">Statut :</label>
+      <select id="statut" name="statut">
+        <option value="à faire" <%= task.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
+        <option value="en cours" <%= task.statut === 'en cours' ? 'selected' : '' %>>En cours</option>
+        <option value="terminée" <%= task.statut === 'terminée' ? 'selected' : '' %>>Terminée</option>
+        <option value="annulée" <%= task.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
+      </select>
+
+      <label for="priorite">Priorité :</label>
+      <select id="priorite" name="priorite">
+        <option value="basse" <%= task.priorite === 'basse' ? 'selected' : '' %>>Basse</option>
+        <option value="moyenne" <%= task.priorite === 'moyenne' ? 'selected' : '' %>>Moyenne</option>
+        <option value="haute" <%= task.priorite === 'haute' ? 'selected' : '' %>>Haute</option>
+        <option value="critique" <%= task.priorite === 'critique' ? 'selected' : '' %>>Critique</option>
+      </select>
+
+      <button type="submit">Enregistrer</button>
+      <button type="button" onclick="location.href='/'">Annuler</button>
+    </form>
+  </div>
+</body>
+</html>

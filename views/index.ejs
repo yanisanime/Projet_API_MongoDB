@@ -15,7 +15,7 @@
       <% tasks.forEach(task => { %>
         <div class="task">
           <h3><%= task.titre %></h3>
-          <p><%= task.description %></p>
+          <p><%= task.description ? task.description : "Aucune description" %></p>
           <p><strong>Échéance:</strong> <%= new Date(task.echeance).toLocaleDateString() %></p>
           <p><strong>Statut:</strong> <%= task.statut %></p>
           <button onclick="deleteTask('<%= task._id %>')" class="BtnDelette">Supprimer</button>

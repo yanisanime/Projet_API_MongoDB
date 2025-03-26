@@ -19,8 +19,6 @@ form {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
   max-width: 700px;
   display: flex;
   flex-direction: column;
@@ -139,7 +137,8 @@ button:hover {
 
 #taskContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
 }
@@ -151,6 +150,8 @@ button:hover {
   border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   text-align: left;
+  margin: 20px;
+  min-height: 200px;
 }
 
 .task button {

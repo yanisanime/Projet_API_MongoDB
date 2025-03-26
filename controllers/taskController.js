@@ -85,9 +85,10 @@ exports.updateTask = async (req, res) => {
       if (!updatedTask) {
         return res.status(404).json({ message: "Tâche non trouvée" });
       }
-  
-      res.json(updatedTask);
+
+      console.log("Tâche Modifier avec succès !");
       res.redirect("/"); // Rediriger vers la page d'accueil
+
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

@@ -36,6 +36,15 @@
         <option value="critique" <%= task.priorite === 'critique' ? 'selected' : '' %>>Critique</option>
       </select>
 
+      <!-- pour les categorie -->
+      <label for="categorie">Catégorie :</label>
+      <select id="categorie" name="categorie">
+        <option value="travail" <%= task.categorie === 'travail' ? 'selected' : '' %>>Travail</option>
+        <option value="personnel" <%= task.categorie === 'personnel' ? 'selected' : '' %>>Personnel</option>
+        <option value="Autre" <%= task.categorie === 'autre' ? 'selected' : '' %>>Autre</option>
+      </select>
+
+
       <button type="submit">Enregistrer</button>
       <button type="button" onclick="location.href='/'">Annuler</button>
     </form>

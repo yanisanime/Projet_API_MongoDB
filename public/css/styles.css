@@ -155,7 +155,6 @@ button:hover {
 
 .task button {
   margin-top: 5px;
-  background-color: #dc3545;
   color: white;
   border: none;
   padding: 5px;
@@ -364,4 +363,17 @@ button:hover {
 .etiquette-bubble:hover {
   /*grossisement légé*/
   transform: scale(1.3);
+}
+
+/*pour les bouton edit, delet et detail*/
+.BtnDelette {
+  background-color: #dc3545;
+}
+
+.BtnDetail {
+  background-color: #8328a7;
+}
+
+.BtnModifier {
+  background-color: #07c1ff;
 }

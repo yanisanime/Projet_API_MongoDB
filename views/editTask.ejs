@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  <button type="button" onclick="location.href='/'" class="AnnulerMofif">Annuler</button>
+
   <div class="container">
     <h1>Modifier la Tâche</h1>
     
@@ -24,31 +26,40 @@
       <label for="echeance">Échéance :</label>
       <input type="date" id="echeance" name="echeance" value="<%= new Date(task.echeance).toISOString().split('T')[0] %>">
 
-      <!-- STATUT -->
-      <label for="statut">Statut :</label>
-      <select id="statut" name="statut">
-        <option value="à faire" <%= task.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
-        <option value="en cours" <%= task.statut === 'en cours' ? 'selected' : '' %>>En cours</option>
-        <option value="terminée" <%= task.statut === 'terminée' ? 'selected' : '' %>>Terminée</option>
-        <option value="annulée" <%= task.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
-      </select>
+      <!-- Groupe Statut, Priorité et Catégorie -->
+      <div class="inline-group">
+        <!-- STATUT -->
+        <div>
+          <label for="statut">Statut :</label>
+          <select id="statut" name="statut">
+            <option value="à faire" <%= task.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
+            <option value="en cours" <%= task.statut === 'en cours' ? 'selected' : '' %>>En cours</option>
+            <option value="terminée" <%= task.statut === 'terminée' ? 'selected' : '' %>>Terminée</option>
+            <option value="annulée" <%= task.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
+          </select>
+        </div>
 
-      <!-- PRIORITE -->
-      <label for="priorite">Priorité :</label>
-      <select id="priorite" name="priorite">
-        <option value="basse" <%= task.priorite === 'basse' ? 'selected' : '' %>>Basse</option>
-        <option value="moyenne" <%= task.priorite === 'moyenne' ? 'selected' : '' %>>Moyenne</option>
-        <option value="haute" <%= task.priorite === 'haute' ? 'selected' : '' %>>Haute</option>
-        <option value="critique" <%= task.priorite === 'critique' ? 'selected' : '' %>>Critique</option>
-      </select>
+        <!-- PRIORITÉ -->
+        <div>
+          <label for="priorite">Priorité :</label>
+          <select id="priorite" name="priorite">
+            <option value="basse" <%= task.priorite === 'basse' ? 'selected' : '' %>>Basse</option>
+            <option value="moyenne" <%= task.priorite === 'moyenne' ? 'selected' : '' %>>Moyenne</option>
+            <option value="haute" <%= task.priorite === 'haute' ? 'selected' : '' %>>Haute</option>
+            <option value="critique" <%= task.priorite === 'critique' ? 'selected' : '' %>>Critique</option>
+          </select>
+        </div>
 
-      <!-- POUR LES CATEGORIE -->
-      <label for="categorie">Catégorie :</label>
-      <select id="categorie" name="categorie">
-        <option value="travail" <%= task.categorie === 'travail' ? 'selected' : '' %>>Travail</option>
-        <option value="personnel" <%= task.categorie === 'personnel' ? 'selected' : '' %>>Personnel</option>
-        <option value="Autre" <%= task.categorie === 'autre' ? 'selected' : '' %>>Autre</option>
-      </select>
+        <!-- CATÉGORIE -->
+        <div>
+          <label for="categorie">Catégorie :</label>
+          <select id="categorie" name="categorie">
+            <option value="travail" <%= task.categorie === 'travail' ? 'selected' : '' %>>Travail</option>
+            <option value="personnel" <%= task.categorie === 'personnel' ? 'selected' : '' %>>Personnel</option>
+            <option value="autre" <%= task.categorie === 'autre' ? 'selected' : '' %>>Autre</option>
+          </select>
+        </div>
+      </div>
 
       <!-- AUTEUR -->
       <fieldset>
@@ -111,7 +122,6 @@
 
 
       <button type="submit" class="btnEnregistrerModif">Enregistrer</button>
-      <button type="button" onclick="location.href='/'" class="AnnulerMofif">Annuler</button>
     </form>
   </div>
 </body>

@@ -379,11 +379,11 @@ button {
 }
 
 .BtnModifier {
-  background-color: #07c1ff;
+  background-color: #007bff;
 }
 
 .BtnModifier:hover {
-  background-color: #147094;
+  background-color: #0056b3;
 }
 
 .BtnAjouterTask {
@@ -434,6 +434,9 @@ button {
 
 .AnnulerMofif {
   background-color: #dc3545;
+  margin: 20px;
+  /*collé à gauche*/
+  margin-left: 0;
 }
 
 .AnnulerMofif:hover {
@@ -446,4 +449,29 @@ button {
 
 .supprimerSousTache:hover {
   background-color: #a81d2b;
+}
+
+/*pour aligné les drop liste*/
+
+.inline-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px; /* Espacement entre les éléments */
+}
+
+.inline-group div {
+  flex: 1; /* Pour que chaque élément prenne la même largeur */
+  display: flex;
+  flex-direction: column;
+}
+
+.inline-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.inline-group select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }

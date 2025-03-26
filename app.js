@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path"); ///Module Node.js pour manipuler les chemins de fichiers
 const Task = require("./model/model"); //Importation du modèle Task
+const taskRoutes = require("./routes/taskRoutes");
+
 
 const app = express();
 app.use(express.json());
@@ -25,7 +27,6 @@ mongoose
 
 
 // Routes
-const taskRoutes = require("./routes/taskRoutes");
 app.use("/tasks", taskRoutes);
 
 // Serveur statique, ici on sert le fichier index.ejs par défaut 
@@ -44,4 +45,4 @@ app.get("/", async (req, res) => {
 
 // ICI on démar le serveur
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Serveur démarré sur le port ${PORT}`));
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));

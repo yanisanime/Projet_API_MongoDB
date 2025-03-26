@@ -19,6 +19,7 @@
           <p><strong>Échéance:</strong> <%= new Date(task.echeance).toLocaleDateString() %></p>
           <p><strong>Statut:</strong> <%= task.statut %></p>
           <button onclick="deleteTask('<%= task._id %>')">Supprimer</button>
+          <button onclick="location.href='/tasks/<%= task._id %>'">Voir Détails</button>
         </div>
       <% }) %>
     <% } else { %>

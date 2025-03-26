@@ -5,10 +5,10 @@
   <link rel="stylesheet" href="css/styles.css"> 
 </head>
 <body>
-  <h1>Gestionnaire de Tâches</h1>
+  <h1 style="color: white;">Gestionnaire de Tâches</h1>
   
   <!-- On redirig l'utilisateur vers le formulaire d'ajout -->
-  <button id="addTaskBtn" onclick="location.href='/tasks/new'">Ajouter une tâche</button>
+  <button onclick="location.href='/tasks/new'" class="BtnAjouterTaskAccieil">Ajouter une tâche</button>
 
   <div id="taskContainer">
     <% if (tasks && tasks.length > 0) { %>

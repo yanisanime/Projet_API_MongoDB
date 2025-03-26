@@ -1,9 +1,17 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
+  background: linear-gradient(to right, #00aaff, #0044ff);
+
+  /*  height: 100vh;
+  background-image: url("../image/fond.jpg"); 
+  background-size: cover; 
+  background-position: center; */
+
   padding: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   flex-direction: column;
   margin: 0;
 }
@@ -69,17 +77,15 @@ legend {
 /* Bouton de soumission */
 button {
   padding: 12px;
-  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background-color: #218838;
+  /*en gras*/
+  font-weight: bold;
+  max-width: fit-content;
+  min-width: 50px;
 }
 
 /* Bouton d'ajout des sous-tâches */
@@ -124,16 +130,6 @@ button:hover {
 }
 
 /* Pour la page d'accueil pour afficher les tache  */
-
-#addTaskBtn {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin: 20px;
-  width: 200px;
-}
 
 #taskContainer {
   display: flex;
@@ -311,7 +307,6 @@ button:hover {
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.3s ease;
   display: flex;
   align-items: center;
 }
@@ -371,10 +366,84 @@ button:hover {
   background-color: #dc3545;
 }
 
+.BtnDelette:hover {
+  background-color: #a81d2b;
+}
+
 .BtnDetail {
   background-color: #8328a7;
 }
 
+.BtnDetail:hover {
+  background-color: #581581;
+}
+
 .BtnModifier {
   background-color: #07c1ff;
+}
+
+.BtnModifier:hover {
+  background-color: #147094;
+}
+
+.BtnAjouterTask {
+  background-color: #ffc107;
+
+  /* Transition pour l'animation au survol */
+  transition-duration: 0.5s;
+  /*on enlève le transforme pour que ça soit fluide*/
+  transform: scale(1);
+}
+
+.BtnAjouterTask:hover {
+  /*on le grossi*/
+  transform: scale(1.05);
+}
+
+.BtnRettour {
+  background-color: #ffc107;
+  max-width: fit-content;
+  margin-bottom: 20px;
+}
+
+.BtnRettour:hover {
+  background-color: #e0a800;
+}
+
+/*pour la page d'accueil*/
+.BtnAjouterTaskAccieil {
+  background-color: #ffc107;
+  margin-bottom: 40px;
+  max-width: fit-content;
+  /*en gras*/
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.BtnAjouterTaskAccieil:hover {
+  background-color: #e0a800;
+}
+
+.btnEnregistrerModif {
+  background-color: #ffc107;
+}
+
+.btnEnregistrerModif:hover {
+  background-color: #e0a800;
+}
+
+.AnnulerMofif {
+  background-color: #dc3545;
+}
+
+.AnnulerMofif:hover {
+  background-color: #a81d2b;
+}
+
+.supprimerSousTache {
+  background-color: #dc3545;
+}
+
+.supprimerSousTache:hover {
+  background-color: #a81d2b;
 }

@@ -6,7 +6,9 @@
 </head>
 <body>
 
-  <div class="container">
+<button onclick="window.location.href='/'" class="BtnRettour">Annuler</button>
+
+<div class="container">
 
   <h1>Nouvelle Tâche</h1>
 
@@ -73,21 +75,8 @@
       <legend>Sous-tâches</legend>
 
       <div id="sousTachesContainer">
-        <div class="sousTache">
-          <label for="sousTacheTitre">Titre:</label>
-          <input type="text" name="sousTaches[0][titre]" required>
+        <!-- Les sous-tâches seront ajoutées ici dynamiquement -->
 
-          <label for="sousTacheStatut">Statut:</label>
-          <select name="sousTaches[0][statut]">
-            <option value="à faire">À faire</option>
-            <option value="en cours">En cours</option>
-            <option value="terminée">Terminée</option>
-            <option value="annulée">Annulée</option>
-          </select>
-
-          <label for="sousTacheEcheance">Échéance:</label>
-          <input type="date" name="sousTaches[0][echeance]">
-        </div>
       </div>
 
       <button type="button" id="ajouterSousTache">Ajouter une sous-tâche</button>
@@ -99,14 +88,12 @@
 
 
     <!-- AJOUTER UNE TACHE -->
-    <button type="submit">Ajouter</button>
+    <button type="submit" class="BtnAjouterTask">Ajouter</button>
 
   </form>
 </div>
 
-  <div class="BtnRettour">
-      <a href="/">Retour</a>
-  </div>
+
 
   <script src="/js/script.js"></script> 
 </body>

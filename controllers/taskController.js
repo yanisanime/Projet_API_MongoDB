@@ -52,7 +52,7 @@ exports.createTask = async (req, res) => {
 //Supprimer une tâche
 exports.deleteTask = async (req, res) => {
   try {
-    const id = req.params.id; // Correction de l'extraction de l'ID
+    const id = req.params.id; 
     await Task.findByIdAndDelete(id); // Suppression dans MongoDB
 
     console.log("Tâche supprimée :", id);

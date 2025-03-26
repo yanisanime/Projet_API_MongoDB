@@ -37,33 +37,41 @@ function fetchTasks() {
 }
 
 
-// Ajouter une sous tâche
+// Ajouter une sous-tâche au clic
 document.getElementById('ajouterSousTache').addEventListener('click', function () {
-    const container = document.getElementById('sousTachesContainer');
-    const index = container.children.length;
+  const container = document.getElementById('sousTachesContainer');
+  const index = container.children.length;
 
-    const sousTacheDiv = document.createElement('div');
-    sousTacheDiv.classList.add('sousTache');
+  const sousTacheDiv = document.createElement('div');
+  sousTacheDiv.classList.add('sousTache');
 
-    sousTacheDiv.innerHTML = `
-      <label for="sousTacheTitre">Titre:</label>
-      <input type="text" name="sousTaches[${index}][titre]" required>
+  sousTacheDiv.innerHTML = `
+    <label for="sousTacheTitre">Titre:</label>
+    <input type="text" name="sousTaches[${index}][titre]">
 
-      <label for="sousTacheStatut">Statut:</label>
-      <select name="sousTaches[${index}][statut]">
-        <option value="à faire">À faire</option>
-        <option value="en cours">En cours</option>
-        <option value="terminée">Terminée</option>
-        <option value="annulée">Annulée</option>
-      </select>
+    <label for="sousTacheStatut">Statut:</label>
+    <select name="sousTaches[${index}][statut]">
+      <option value="à faire">À faire</option>
+      <option value="en cours">En cours</option>
+      <option value="terminée">Terminée</option>
+      <option value="annulée">Annulée</option>
+    </select>
 
-      <label for="sousTacheEcheance">Échéance:</label>
-      <input type="date" name="sousTaches[${index}][echeance]">
-    `;
+    <label for="sousTacheEcheance">Échéance:</label>
+    <input type="date" name="sousTaches[${index}][echeance]">
 
-    container.appendChild(sousTacheDiv);
-  });
+    <button type="button" class="supprimerSousTache">Supprimer</button>
+  `;
 
+  container.appendChild(sousTacheDiv);
+});
+
+// Supprimer une sous-tâche au clic sur le bouton "Supprimer"
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('supprimerSousTache')) {
+      event.target.parentElement.remove();
+  }
+});
 
 //Supprimer unee tache
 function deleteTask(id) {

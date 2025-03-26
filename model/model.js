@@ -12,6 +12,7 @@ const CommentSchema = new mongoose.Schema({
   contenu: String
 });
 
+// Pour cette parti, on stoke seulement les champs modifiés et les valeurs avant et après la modification et la date
 const HistorySchema = new mongoose.Schema({
   champModifie: String,
   ancienneValeur: mongoose.Schema.Types.Mixed,

@@ -11,15 +11,20 @@
     <h1>Modifier la Tâche</h1>
     
     <form action="/tasks/edit/<%= task._id %>" method="POST">
+
+      <!-- TITRE -->
       <label for="titre">Titre :</label>
       <input type="text" id="titre" name="titre" value="<%= task.titre %>" required>
 
+      <!-- DESCRIPTION -->
       <label for="description">Description :</label>
       <textarea id="description" name="description" required><%= task.description %></textarea>
 
+      <!-- ECHEANCE -->
       <label for="echeance">Échéance :</label>
       <input type="date" id="echeance" name="echeance" value="<%= new Date(task.echeance).toISOString().split('T')[0] %>">
 
+      <!-- STATUT -->
       <label for="statut">Statut :</label>
       <select id="statut" name="statut">
         <option value="à faire" <%= task.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
@@ -28,6 +33,7 @@
         <option value="annulée" <%= task.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
       </select>
 
+      <!-- PRIORITE -->
       <label for="priorite">Priorité :</label>
       <select id="priorite" name="priorite">
         <option value="basse" <%= task.priorite === 'basse' ? 'selected' : '' %>>Basse</option>
@@ -36,7 +42,7 @@
         <option value="critique" <%= task.priorite === 'critique' ? 'selected' : '' %>>Critique</option>
       </select>
 
-      <!-- pour les categorie -->
+      <!-- POUR LES CATEGORIE -->
       <label for="categorie">Catégorie :</label>
       <select id="categorie" name="categorie">
         <option value="travail" <%= task.categorie === 'travail' ? 'selected' : '' %>>Travail</option>
@@ -44,9 +50,68 @@
         <option value="Autre" <%= task.categorie === 'autre' ? 'selected' : '' %>>Autre</option>
       </select>
 
+      <!-- AUTEUR -->
+      <fieldset>
+        <legend>Auteur</legend>
 
-      <button type="submit">Enregistrer</button>
-      <button type="button" onclick="location.href='/'">Annuler</button>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="auteur[nom]" value="<%= task.auteur.nom %>" required>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="auteur[prenom]" value="<%= task.auteur.prenom %>" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="auteur[email]" value="<%= task.auteur.email %>" required>
+      </fieldset>
+
+      <!-- ETIQUETTE -->
+      <label for="etiquettes">Étiquettes :</label>
+      <input type="text" id="etiquettes" name="etiquettes" value="<%= task.etiquettes.join(' ') %>">
+
+      <!-- SOUS TACHEs -->
+      <div id="sousTachesContainer"></div>
+        <% task.sousTaches.forEach((sousTache, index) => { %>
+          <div class="sousTache"></div>
+        <label for="sousTacheTitre<%= index %>">Titre:</label>
+        <input type="text" id="sousTacheTitre<%= index %>" name="sousTaches[<%= index %>][titre]" value="<%= sousTache.titre %>">
+
+        <label for="sousTacheStatut<%= index %>">Statut:</label>
+        <select id="sousTacheStatut<%= index %>" name="sousTaches[<%= index %>][statut]">
+          <option value="à faire" <%= sousTache.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
+          <option value="en cours" <%= sousTache.statut === 'en cours' ? 'selected' : '' %>>En cours</option>
+          <option value="terminée" <%= sousTache.statut === 'terminée' ? 'selected' : '' %>>Terminée</option>
+          <option value="annulée" <%= sousTache.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
+        </select>
+
+        <label for="sousTacheEcheance<%= index %>">Échéance:</label>
+        <input type="date" id="sousTacheEcheance<%= index %>" name="sousTaches[<%= index %>][echeance]" value="<%= new Date(sousTache.echeance).toISOString().split('T')[0] %>">
+
+        <button type="button" class="supprimerSousTache">Supprimer</button>
+          
+        <% }) %>
+      <button type="button" id="ajouterSousTache">Ajouter une sous-tâche</button>
+
+      <!-- COMMENTAIRE -->
+
+      <!-- ICI on affiche les commentaires existants -->
+      <div id="commentairesExistants">
+        <h3>Commentaires :</h3>
+        <% task.commentaires.forEach((commentaire, index) => { %>
+          <div class="commentaire">
+        <p><strong>Commentaire <%= index + 1 %> :</strong> <%= commentaire %></p>
+          </div>
+        <% }) %>
+      </div>
+
+      <!-- Ajouter un nouveau commentaire -->
+      <label for="nouveauCommentaire">Ajouter un commentaire :</label>
+      <textarea id="nouveauCommentaire" name="nouveauCommentaire"></textarea>
+
+
+
+
+      <button type="submit" class="btnEnregistrerModif">Enregistrer</button>
+      <button type="button" onclick="location.href='/'" class="AnnulerMofif">Annuler</button>
     </form>
   </div>
 </body>

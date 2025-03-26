@@ -9,80 +9,110 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="page-title">Détails de la Tâche</h1>
+
+    <!-- TITRE -->
+    <h1 class="page-title"><%= task.titre %></h1>
 
     <div class="task-card">
-      <h2><i class="fas fa-tasks"></i> <%= task.titre %></h2>
+
+      <!-- DESCRIPTION -->
       <p><strong>Description:</strong> <%= task.description %></p>
-      <p><strong>Échéance:</strong> <i class="far fa-calendar-alt"></i> <%= new Date(task.echeance).toLocaleDateString() %></p>
+
+      <!-- ECHEANCE -->
+      <p>
+        <strong>Échéance:</strong> 
+        <%= new Date(task.echeance).toLocaleDateString() %>
+      </p>
         
       <!-- ici je change le css dynamiquement pour que ce soit plus joli -->
+      <!-- STATUT -->
       <p><strong>Statut:</strong> 
-    
-            <% if (task.statut.toLowerCase() === 'à faire') { %>
-                <span class="status afaire">À faire</span>
-              <% } else if (task.statut.toLowerCase() === 'en cours') { %>
-                <span class="status encours">En cours</span>
-              <% } else if (task.statut.toLowerCase() === 'terminée') { %>
-                <span class="status terminee">Terminée</span>
-              <% } else if (task.statut.toLowerCase() === 'annulée') { %>
-                <span class="status annulee">Annulée</span>
-              <% }%>
-    
-    </p>
+        <% if (task.statut.toLowerCase() === 'à faire') { %>
+            <span class="status afaire">À faire</span>
+          <% } else if (task.statut.toLowerCase() === 'en cours') { %>
+            <span class="status encours">En cours</span>
+          <% } else if (task.statut.toLowerCase() === 'terminée') { %>
+            <span class="status terminee">Terminée</span>
+          <% } else if (task.statut.toLowerCase() === 'annulée') { %>
+            <span class="status annulee">Annulée</span>
+          <% }%>
+      </p>
 
-    <p><strong>Priorité:</strong> 
-        <% if (task.priorite.toLowerCase() === 'basse') { %>
-            <span class="priority basse">Basse</span>
-        <% } else if (task.priorite.toLowerCase() === 'moyenne') { %>
-            <span class="priority moyenne">Moyenne</span>
-        <% } else if (task.priorite.toLowerCase() === 'haute') { %>
-            <span class="priority haute">Haute</span>
-        <% } else if (task.priorite.toLowerCase() === 'critique') { %>
-            <span class="priority critique">Critique</span>
-        <% }%>
+      <!-- PRIORITE -->
+      <p><strong>Priorité:</strong> 
+          <% if (task.priorite.toLowerCase() === 'basse') { %>
+              <span class="priority basse">Basse</span>
+          <% } else if (task.priorite.toLowerCase() === 'moyenne') { %>
+              <span class="priority moyenne">Moyenne</span>
+          <% } else if (task.priorite.toLowerCase() === 'haute') { %>
+              <span class="priority haute">Haute</span>
+          <% } else if (task.priorite.toLowerCase() === 'critique') { %>
+              <span class="priority critique">Critique</span>
+          <% }%>
+      </p>
 
-    </p>
+      <!-- CATEGORIE -->
+      <p><strong>Catégorie:</strong> <%= task.categorie %></p>
 
-    <p><strong>Catégorie:</strong> <%= task.categorie %></p>
     </div>
 
-    <div class="subtasks">
-      <h3><i class="fas fa-list"></i> Sous-tâches :</h3>
-      <% if (task.sousTaches && task.sousTaches.length > 0) { %>
-        <ul>
-          <% task.sousTaches.forEach(sousTache => { %>
-            <li>
-              <strong><%= sousTache.titre %></strong> - 
-              
-              <% if (sousTache.statut.toLowerCase() === 'à faire') { %>
-                <span class="status afaire">À faire</span>
-              <% } else if (sousTache.statut.toLowerCase() === 'en cours') { %>
-                <span class="status encours">En cours</span>
-              <% } else if (sousTache.statut.toLowerCase() === 'terminée') { %>
-                <span class="status terminee">Terminée</span>
-              <% } else if (sousTache.statut.toLowerCase() === 'annulée') { %>
-                <span class="status annulee">Annulée</span>
-              <% }%>
-
-              (Échéance : <%= new Date(sousTache.echeance).toLocaleDateString() %>)
-            </li>
+    <!-- ETIQUETTE -->
+    <div class="task-card">
+      <h3>Étiquettes :</h3>
+      <% if (task.etiquettes && task.etiquettes.length > 0) { %>
+        <div class="etiquettes-list">
+          <% task.etiquettes.forEach(etiquette => { %>
+            <% const mots = etiquette.split(" "); %> <!-- Sépare chaque étiquette en mots -->
+            <% mots.forEach(mot => { %> <!-- Crée une bulle pour chaque mot -->
+              <span class="etiquette-bubble"><%= mot %></span>
+            <% }) %>
           <% }) %>
-        </ul>
+        </div>
       <% } else { %>
-        <p>Aucune sous-tâche.</p>
+        <p>Aucune étiquette.</p>
       <% } %>
     </div>
 
+    <!-- SOUS TACHE -->
+    <div class="subtasks">
+    <h3>
+      Sous-tâches :
+    </h3>
+    <% if (task.sousTaches && task.sousTaches.length > 0) { %>
+      <ul>
+        <% task.sousTaches.forEach(sousTache => { %>
+          <li>
+            <strong><%= sousTache.titre %></strong>
+            
+            <% if (sousTache.statut.toLowerCase() === 'à faire') { %>
+              <span class="status afaire">À faire</span>
+            <% } else if (sousTache.statut.toLowerCase() === 'en cours') { %>
+              <span class="status encours">En cours</span>
+            <% } else if (sousTache.statut.toLowerCase() === 'terminée') { %>
+              <span class="status terminee">Terminée</span>
+            <% } else if (sousTache.statut.toLowerCase() === 'annulée') { %>
+              <span class="status annulee">Annulée</span>
+            <% }%>
+
+            (Échéance : <%= new Date(sousTache.echeance).toLocaleDateString() %>)
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>Aucune sous-tâche.</p>
+    <% } %>
+  </div>
+
+    <!-- COMMENTAIRE -->
     <div class="comments">
-      <h3><i class="fas fa-comments"></i> Commentaires :</h3>
+      <h3> Commentaires :</h3>
       <% if (task.commentaires && task.commentaires.length > 0) { %>
         <ul>
           <% task.commentaires.forEach(commentaire => { %>
             <li>
-              <strong><i class="fas fa-user"></i> <%= commentaire.auteur %> :</strong> 
+              <strong> <%= commentaire.auteur.nom %> :</strong> 
               <p><%= commentaire.contenu %></p>
-              <small><i class="far fa-clock"></i> <%= new Date(commentaire.date).toLocaleDateString() %></small>
+              <small><%= new Date(commentaire.date).toLocaleDateString() %></small>
             </li>
           <% }) %>
         </ul>
@@ -91,9 +121,11 @@
       <% } %>
     </div>
 
-    <div class="buttons">
-      <button class="btn btn-back" onclick="location.href='/'"><i class="fas fa-arrow-left"></i> Retour</button>
-    </div>
+  </div>
+
+  <!-- BOUTON RETOUR -->
+  <div class="buttons">
+    <button class="btn btn-back" onclick="location.href='/'">Retour</button>
   </div>
 </body>
 </html>

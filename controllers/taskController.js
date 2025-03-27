@@ -3,10 +3,22 @@ const Task = require("../model/model");
 //Récupérer toutes les tâches
 exports.getTasks = async (req, res) => {
   try {
-    const tasks = await Task.find();
-    res.json(tasks);
+      let filter = {};
+
+      if (req.query.statut) {
+          filter.statut = req.query.statut;
+      }
+      if (req.query.priorite) {
+          filter.priorite = req.query.priorite;
+      }
+      if (req.query.categorie) {
+          filter.categorie = req.query.categorie;
+      }
+
+      const tasks = await Task.find(filter);
+      res.json(tasks);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+      res.status(500).json({ error: err.message });
   }
 };
 

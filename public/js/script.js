@@ -1,39 +1,66 @@
+
+
 // Récupérer les tâches depuis l'API et les afficher quand la page est chargé
 document.addEventListener("DOMContentLoaded", () => {
-    fetchTasks();
+  fetchTasks(); // Charger les tâches au début
+
+  // Sélectionner les filtres
+  const filters = document.querySelectorAll("#filterForm select");
+  console.log("On applique un filtre");
+
+  // Ajouter un écouteur sur chaque filtre
+  filters.forEach(filter => {
+      filter.addEventListener("change", () => {
+          fetchTasks(); // Mettre à jour la liste quand un filtre change
+      });
+  });
 });
 
-// Fonction pour récupérer les tâches depuis l'API et les Afficher
+// Fonction pour récupérer les tâches filtrées
 function fetchTasks() {
-    fetch("http://localhost:5000/")
-        .then(response => response.json())
-        .then(tasks => {
-            const taskContainer = document.getElementById("taskContainer");
-            taskContainer.innerHTML = "";
+  let query = buildQueryParams();
+  fetch(`http://localhost:5000/tasks${query}`)
+      .then(response => response.json())
+      .then(tasks => updateTaskList(tasks))
+      .catch(error => console.error("Erreur lors de la récupération des tâches:", error));
+}
 
-            // Si aucune tâche n'est trouvée, afficher un message
-            if (tasks.length === 0) 
-            {
-                taskContainer.innerHTML = "<p id='emptyMessage'>Aucune tâche pour le moment.</p>";
-            } 
-            // Sinon, afficher les tâches
-            else 
-            {
-                tasks.forEach(task => {
-                    const taskElement = document.createElement("div");
-                    taskElement.classList.add("task");
-                    taskElement.innerHTML = `
-                        <h3>${task.titre}</h3>
-                        <p>${task.description}</p>
-                        <p><strong>Échéance:</strong> ${new Date(task.echeance).toLocaleDateString()}</p>
-                        <p><strong>Statut:</strong> ${task.statut}</p>
-                        <button onclick="deleteTask('${task._id}')">Supprimer</button>
-                    `;
-                    taskContainer.appendChild(taskElement);
-                });
-            }
-        })
-        .catch(error => console.error("Erreur lors de la récupération des tâches:", error));
+// Construire l'URL avec les paramètres des filtres
+function buildQueryParams() {
+  const statut = document.getElementById("statut").value;
+  const priorite = document.getElementById("priorite").value;
+  const categorie = document.getElementById("categorie").value;
+
+  let params = new URLSearchParams();
+  if (statut) params.append("statut", statut);
+  if (priorite) params.append("priorite", priorite);
+  if (categorie) params.append("categorie", categorie);
+
+  return params.toString() ? `?${params.toString()}` : "";
+}
+
+
+// Met à jour l'affichage des tâches
+function updateTaskList(tasks) {
+  const taskContainer = document.getElementById("taskContainer");
+  taskContainer.innerHTML = "";
+
+  if (tasks.length === 0) {
+      taskContainer.innerHTML = "<p id='emptyMessage'>Aucune tâche pour le moment.</p>";
+  } else {
+      tasks.forEach(task => {
+          const taskElement = document.createElement("div");
+          taskElement.classList.add("task");
+          taskElement.innerHTML = `
+              <h3>${task.titre}</h3>
+              <p>${task.description}</p>
+              <p><strong>Échéance:</strong> ${new Date(task.echeance).toLocaleDateString()}</p>
+              <p><strong>Statut:</strong> ${task.statut}</p>
+              <button onclick="deleteTask('${task._id}')">Supprimer</button>
+          `;
+          taskContainer.appendChild(taskElement);
+      });
+  }
 }
 
 

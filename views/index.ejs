@@ -6,6 +6,78 @@
 </head>
 <body>
   <h1 style="color: white;">Gestionnaire de Tâches</h1>
+
+
+  <!-- Formulaire pour le filtres  -->
+  <form id="filterForm" class="filterForm">
+    <fieldset>
+      <legend>Filtres</legend>
+  
+      <!-- Filtrage par Statut -->
+      <label for="statut">Statut :</label>
+      <select id="statut" name="statut">
+        <option value="">Tous</option>
+        <option value="à faire">À faire</option>
+        <option value="en cours">En cours</option>
+        <option value="terminée">Terminée</option>
+        <option value="annulée">Annulée</option>
+      </select>
+  
+      <!-- Filtrage par Priorité -->
+      <label for="priorite">Priorité :</label>
+      <select id="priorite" name="priorite">
+        <option value="">Toutes</option>
+        <option value="basse">Basse</option>
+        <option value="moyenne">Moyenne</option>
+        <option value="haute">Haute</option>
+        <option value="critique">Critique</option>
+      </select>
+  
+      <!-- Filtrage par Catégorie -->
+      <label for="categorie">Catégorie :</label>
+      <select id="categorie" name="categorie">
+        <option value="">Toutes</option>
+        <option value="travail">Travail</option>
+        <option value="personnel">Personnel</option>
+        <option value="autre">Autre</option>
+      </select>
+  
+      <!-- Filtrage par Étiquette -->
+      <label for="etiquette">Étiquette :</label>
+      <input type="text" id="etiquette" name="etiquette" placeholder="Ex: urgent">
+  
+      <!-- Filtrage par Date -->
+      <label for="avant">Avant le :</label>
+      <input type="date" id="avant" name="avant">
+  
+      <label for="apres">Après le :</label>
+      <input type="date" id="apres" name="apres">
+  
+      <!-- Recherche par texte libre -->
+      <label for="q">Recherche :</label>
+      <input type="text" id="q" name="q" placeholder="Rechercher...">
+    </fieldset>
+  
+    <fieldset>
+      <legend>Tri</legend>
+  
+      <label for="tri">Trier par :</label>
+      <select id="tri" name="tri">
+        <option value="">Aucun</option>
+        <option value="echeance">Date d'échéance</option>
+        <option value="priorite">Priorité</option>
+        <option value="dateCreation">Date de création</option>
+      </select>
+  
+      <label for="ordre">Ordre :</label>
+      <select id="ordre" name="ordre">
+        <option value="asc">Croissant</option>
+        <option value="desc">Décroissant</option>
+      </select>
+    </fieldset>
+  
+    <button type="submit">Filtrer</button>
+  </form>
   
   <!-- On redirig l'utilisateur vers le formulaire d'ajout -->
   <button onclick="location.href='/tasks/new'" class="BtnAjouterTaskAccieil">Ajouter une tâche</button>

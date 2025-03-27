@@ -9,7 +9,7 @@
 
 
   <!-- Formulaire pour le filtres  -->
-  <form id="filterForm" class="filterForm">
+  <form id="filterForm" class="filterForm" action="/tasks/filter" method="POST">
     <fieldset>
       <legend>Filtres</legend>
   
@@ -42,38 +42,6 @@
         <option value="autre">Autre</option>
       </select>
   
-      <!-- Filtrage par Étiquette -->
-      <label for="etiquette">Étiquette :</label>
-      <input type="text" id="etiquette" name="etiquette" placeholder="Ex: urgent">
-  
-      <!-- Filtrage par Date -->
-      <label for="avant">Avant le :</label>
-      <input type="date" id="avant" name="avant">
-  
-      <label for="apres">Après le :</label>
-      <input type="date" id="apres" name="apres">
-  
-      <!-- Recherche par texte libre -->
-      <label for="q">Recherche :</label>
-      <input type="text" id="q" name="q" placeholder="Rechercher...">
-    </fieldset>
-  
-    <fieldset>
-      <legend>Tri</legend>
-  
-      <label for="tri">Trier par :</label>
-      <select id="tri" name="tri">
-        <option value="">Aucun</option>
-        <option value="echeance">Date d'échéance</option>
-        <option value="priorite">Priorité</option>
-        <option value="dateCreation">Date de création</option>
-      </select>
-  
-      <label for="ordre">Ordre :</label>
-      <select id="ordre" name="ordre">
-        <option value="asc">Croissant</option>
-        <option value="desc">Décroissant</option>
-      </select>
     </fieldset>
   
     <button type="submit">Filtrer</button>

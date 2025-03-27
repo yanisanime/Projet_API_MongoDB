@@ -159,9 +159,9 @@ button {
 
 .task {
   background: white;
-  padding: 10px;
+  padding: 20px;
   width: 300px;
-  border-radius: 5px;
+  border-radius: 25px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   text-align: left;
   margin: 20px;
@@ -448,6 +448,14 @@ button {
 }
 
 .btnEnregistrerModif:hover {
+  background-color: #e0a800;
+}
+
+.btnFilter {
+  background-color: #ffc107;
+}
+
+.btnFilter:hover {
   background-color: #e0a800;
 }
 

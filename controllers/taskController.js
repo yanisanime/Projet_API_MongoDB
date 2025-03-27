@@ -1,27 +1,59 @@
 const Task = require("../model/model");
 
 //Récupérer toutes les tâches
+// Récupérer toutes les tâches
 exports.getTasks = async (req, res) => {
   try {
-      let filter = {};
+    let filter = {};
 
-      if (req.query.statut) {
-          filter.statut = req.query.statut;
-      }
-      if (req.query.priorite) {
-          filter.priorite = req.query.priorite;
-      }
-      if (req.query.categorie) {
-          filter.categorie = req.query.categorie;
-      }
+    // Filtres simples
+    if (req.query.statut) {
+      filter.statut = req.query.statut;
+    }
+    if (req.query.priorite) {
+      filter.priorite = req.query.priorite;
+    }
+    if (req.query.categorie) {
+      filter.categorie = req.query.categorie;
+    }
 
-      const tasks = await Task.find(filter);
-      res.json(tasks);
+    // Filtre des étiquettes - correction ici
+    if (req.query.etiquette) {
+      filter.etiquettes = { $in: [req.query.etiquette] }; // Tableau avec une seule valeur
+    }
+
+    // Filtrage sur la date d'échéance - correction ici
+    if (req.query.avant || req.query.apres) {
+      filter.echeance = {};
+      
+      if (req.query.avant) {
+        filter.echeance.$lt = new Date(req.query.avant);
+      }
+      if (req.query.apres) {
+        filter.echeance.$gt = new Date(req.query.apres);
+      }
+    }
+
+    // Recherche textuelle - correction ici
+    if (req.query.q) {
+      filter.$or = [
+        { titre: { $regex: req.query.q, $options: "i" } },
+        { description: { $regex: req.query.q, $options: "i" } }
+      ];
+    }
+
+    // Tri des résultats
+    let sort = {};
+    if (req.query.tri) {
+      sort[req.query.tri] = req.query.ordre === 'desc' ? -1 : 1;
+    }
+
+    const tasks = await Task.find(filter).sort(sort);
+    res.json(tasks);
   } catch (err) {
-      res.status(500).json({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 };
-
 //Ajouter une nouvelle tâche
 exports.createTask = async (req, res) => {
   try {

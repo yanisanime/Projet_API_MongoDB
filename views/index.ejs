@@ -9,11 +9,10 @@
 
 
   <!-- Formulaire pour le filtres  -->
-  <form id="filterForm" class="filterForm" action="/tasks/filter" method="POST">
+  <form id="filterForm" class="filterForm">
     <fieldset>
       <legend>Filtres</legend>
   
-      <!-- Filtrage par Statut -->
       <label for="statut">Statut :</label>
       <select id="statut" name="statut">
         <option value="">Tous</option>
@@ -23,7 +22,6 @@
         <option value="annulée">Annulée</option>
       </select>
   
-      <!-- Filtrage par Priorité -->
       <label for="priorite">Priorité :</label>
       <select id="priorite" name="priorite">
         <option value="">Toutes</option>
@@ -33,7 +31,6 @@
         <option value="critique">Critique</option>
       </select>
   
-      <!-- Filtrage par Catégorie -->
       <label for="categorie">Catégorie :</label>
       <select id="categorie" name="categorie">
         <option value="">Toutes</option>
@@ -42,10 +39,44 @@
         <option value="autre">Autre</option>
       </select>
   
-    </fieldset>
+      <label for="etiquette">Étiquette :</label>
+      <input type="text" id="etiquette" name="etiquette">
   
-    <button type="submit">Filtrer</button>
+      <label for="avant">Avant le :</label>
+      <input type="date" id="avant" name="avant">
+  
+      <label for="apres">Après le :</label>
+      <input type="date" id="apres" name="apres">
+  
+      <label for="q">Recherche :</label>
+      <input type="text" id="q" name="q" placeholder="Titre ou description">
+
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Trie</legend>
+      <label for="tri">Trier par :</label>
+      <select id="tri" name="tri">
+        <option value="">-</option>
+        <option value="echeance">Date d'échéance</option>
+        <option value="priorite">Priorité</option>
+        <option value="dateCreation">Date de création</option>
+      </select>
+  
+      <label for="ordre">Ordre :</label>
+      <select id="ordre" name="ordre">
+        <option value="asc">Croissant</option>
+        <option value="desc">Décroissant</option>
+      </select>
+    </fieldset>
+
+
+
+  
+    <button type="submit" class="btnFilter">Filtrer</button>
   </form>
+  
   
   <!-- On redirig l'utilisateur vers le formulaire d'ajout -->
   <button onclick="location.href='/tasks/new'" class="BtnAjouterTaskAccieil">Ajouter une tâche</button>

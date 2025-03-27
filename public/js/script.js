@@ -77,42 +77,43 @@ function updateTaskList(tasks) {
 
 
 // Ajouter une sous-tâche au clic
+// Ajouter une sous-tâche au clic
 document.addEventListener('DOMContentLoaded', function () {  
-document.getElementById('ajouterSousTache').addEventListener('click', function () {
-  const container = document.getElementById('sousTachesContainer');
-  const index = container.children.length;
+  document.getElementById('ajouterSousTache').addEventListener('click', function () {
+    const container = document.getElementById('sousTachesContainer');
+    const index = container.children.length;
 
-  const sousTacheDiv = document.createElement('div');
-  sousTacheDiv.classList.add('sousTache');
+    const sousTacheDiv = document.createElement('div');
+    sousTacheDiv.classList.add('sousTache');
 
-  sousTacheDiv.innerHTML = `
-    <label for="sousTacheTitre">Titre:</label>
-    <input type="text" name="sousTaches[${index}][titre]">
+    sousTacheDiv.innerHTML = `
+      <label for="sousTacheTitre">Titre:</label>
+      <input type="text" name="sousTaches[${index}][titre]" required>
 
-    <label for="sousTacheStatut">Statut:</label>
-    <select name="sousTaches[${index}][statut]">
-      <option value="à faire">À faire</option>
-      <option value="en cours">En cours</option>
-      <option value="terminée">Terminée</option>
-      <option value="annulée">Annulée</option>
-    </select>
+      <label for="sousTacheStatut">Statut:</label>
+      <select name="sousTaches[${index}][statut]">
+        <option value="à faire">À faire</option>
+        <option value="en cours">En cours</option>
+        <option value="terminée">Terminée</option>
+        <option value="annulée">Annulée</option>
+      </select>
 
-    <label for="sousTacheEcheance">Échéance:</label>
-    <input type="date" name="sousTaches[${index}][echeance]">
+      <label for="sousTacheEcheance">Échéance:</label>
+      <input type="date" name="sousTaches[${index}][echeance]">
 
-    <button type="button" class="supprimerSousTache">Supprimer</button>
-  `;
+      <button type="button" class="supprimerSousTache">Supprimer</button>
+    `;
 
-  container.appendChild(sousTacheDiv);
-});
+    container.appendChild(sousTacheDiv);
+  });
 
-// Supprimer une sous-tâche au clic sur le bouton "Supprimer"
-document.addEventListener('click', function (event) {
-  if (event.target.classList.contains('supprimerSousTache')) {
+  // Supprimer une sous-tâche au clic sur le bouton "Supprimer"
+  document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('supprimerSousTache')) {
       event.target.parentElement.remove();
-  }
+    }
+  });
 });
-});  
 
 
 //Supprimer unee tache
@@ -130,3 +131,33 @@ function deleteTask(id) {
       console.error('Erreur:', error);
     });
 }
+
+
+
+
+// Ajouter un commentaire au clic sur le bouton "Ajouter un commentaire"
+document.addEventListener('DOMContentLoaded', function () {  
+  document.getElementById('ajouterCommentaire').addEventListener('click', function () {
+    const container = document.getElementById('commentairesContainer');
+    const index = container.children.length;
+
+    const commentaireDiv = document.createElement('div');
+    commentaireDiv.classList.add('commentaire');
+
+    commentaireDiv.innerHTML = `
+      <label for="commentaireTitre">Commentaire:</label>
+      <textarea name="commentaires[${index}][texte]" required></textarea>
+
+      <button type="button" class="supprimerCommentaire">Supprimer</button>
+    `;
+
+    container.appendChild(commentaireDiv);
+  });
+
+  // Supprimer un commentaire au clic sur le bouton "Supprimer"
+  document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('supprimerCommentaire')) {
+      event.target.parentElement.remove();
+    }
+  });
+});

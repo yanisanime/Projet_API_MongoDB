@@ -8,7 +8,7 @@
   <h1 style="color: white;">Gestionnaire de Tâches</h1>
 
 
-<button onclick="window.location.href='/'" class="BtnRettour">Annuler</button>
+<button onclick="window.location.href='/'" class="BtnRettour">Retour</button>
 
 <div class="container">
 
@@ -99,19 +99,28 @@
 
       <div id="sousTachesContainer">
         <!-- Les sous-tâches seront ajoutées ici dynamiquement -->
-
       </div>
 
       <button type="button" id="ajouterSousTache">Ajouter une sous-tâche</button>
     </fieldset>
 
     <!-- COMMENTAIRE -->
-    <label for="commentaire">Commentaire:</label>
-    <textarea id="commentaire" name="commentaire"></textarea>
+    <fieldset>
+      <legend>Commentaires</legend>
+    
+      <div id="commentairesContainer">
+        <!-- Les commentaires seront ajoutés ici dynamiquement -->
+      </div>
+    
+      <button type="button" id="ajouterCommentaire">Ajouter un commentaire</button>
+    </fieldset>
 
 
     <!-- AJOUTER UNE TACHE -->
-    <button type="submit" class="BtnAjouterTask">Ajouter</button>
+     <div class="BtnEnLigne">
+      <button type="submit" class="BtnAjouterTask">Ajouter</button>
+      <button onclick="window.location.href='/'" class="BtnAnnulerAjouterTask">Annuler</button>
+     </div>
 
   </form>
 </div>

@@ -107,11 +107,13 @@ button {
 }
 
 /* Bouton d'ajout des sous-tâches */
-#ajouterSousTache {
+#ajouterSousTache,
+#ajouterCommentaire {
   background-color: #007bff;
 }
 
-#ajouterSousTache:hover {
+#ajouterSousTache:hover,
+#ajouterCommentaire:hover {
   background-color: #0056b3;
 }
 
@@ -418,6 +420,20 @@ button {
   transform: scale(1.05);
 }
 
+.BtnAnnulerAjouterTask {
+  background-color: #dc3545;
+
+  /* Transition pour l'animation au survol */
+  transition-duration: 0.5s;
+  /*on enlève le transforme pour que ça soit fluide*/
+  transform: scale(1);
+}
+
+.BtnAnnulerAjouterTask:hover {
+  /*on le grossi*/
+  transform: scale(1.05);
+}
+
 .BtnRettour {
   background-color: #ffc107;
   max-width: fit-content;
@@ -478,6 +494,14 @@ button {
   background-color: #a81d2b;
 }
 
+.BtnAnnuler {
+  background-color: #dc3545;
+}
+
+.BtnAnnuler:hover {
+  background-color: #a81d2b;
+}
+
 /*pour aligné les drop liste*/
 
 .inline-group {
@@ -501,4 +525,10 @@ button {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.BtnEnLigne {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }

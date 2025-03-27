@@ -34,6 +34,24 @@ form {
   margin: auto; /* Centre horizontalement */
 }
 
+.filterForm {
+  background: rgba(255, 255, 255, 0.4); /* Utilise rgba avec la transparence */
+  padding: 30px;
+  border-radius: 30px;
+  max-width: 700px;
+  display: flex;
+  gap: 15px;
+  margin: auto; /* Centre horizontalement */
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filterForm .fieldset .select {
+  opacity: 1; /* Cela se traduit par une opacité de 1 pour le select */
+  flex: 1;
+}
+
 /* Labels */
 label {
   font-weight: bold;
@@ -418,6 +436,7 @@ button {
   /*en gras*/
   font-weight: bold;
   margin-left: 20px;
+  margin-top: 40px;
 }
 
 .BtnAjouterTaskAccieil:hover {

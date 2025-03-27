@@ -5,6 +5,8 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  <h1 style="color: white;">Gestionnaire de Tâches</h1>
+
 
 <button onclick="window.location.href='/'" class="BtnRettour">Annuler</button>
 
@@ -67,15 +69,25 @@
     <fieldset>
       <legend>Auteur</legend>
 
-      <label for="nom">Nom:</label>
-      <input type="text" id="nom" name="auteur[nom]" required>
+      <div class="inline-group">
+        <!-- NOM -->
+        <div>
+          <label for="nom">Nom:</label>
+          <input type="text" id="nom" name="auteur[nom]" required>
+        </div>
 
-      <label for="prenom">Prénom:</label>
-      <input type="text" id="prenom" name="auteur[prenom]" required>
+        <!-- PRÉNOM -->
+        <div>
+          <label for="prenom">Prénom:</label>
+          <input type="text" id="prenom" name="auteur[prenom]" required>
+        </div>
+      </div>
 
+      <!-- EMAIL (restant en dessous) -->
       <label for="email">Email:</label>
       <input type="email" id="email" name="auteur[email]" required>
     </fieldset>
+
 
     <!-- ETIQUETTE -->
     <label for="etiquettes">Etiquettes:</label>

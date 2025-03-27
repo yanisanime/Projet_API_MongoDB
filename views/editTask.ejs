@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  <h1 style="color: white;">Gestionnaire de Tâches</h1>
+
   <button type="button" onclick="location.href='/'" class="AnnulerMofif">Annuler</button>
 
   <div class="container">
@@ -61,44 +63,54 @@
         </div>
       </div>
 
-      <!-- AUTEUR -->
-      <fieldset>
-        <legend>Auteur</legend>
+       <!-- AUTEUR -->
+       <fieldset>
+      <legend>Auteur</legend>
+      <div class="inline-group">
+        <!-- NOM -->
+        <div>
+          <label for="nom">Nom:</label>
+          <input type="text" id="nom" name="auteur[nom]" value="<%= task.auteur.nom %>" required>
+        </div>
 
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="auteur[nom]" value="<%= task.auteur.nom %>" required>
+        <!-- PRÉNOM -->
+        <div>
+          <label for="prenom">Prénom:</label>
+          <input type="text" id="prenom" name="auteur[prenom]" value="<%= task.auteur.prenom %>" required>
+        </div>
+      </div>
 
-        <label for="prenom">Prénom :</label>
-        <input type="text" id="prenom" name="auteur[prenom]" value="<%= task.auteur.prenom %>" required>
+      <!-- EMAIL (restant en dessous) -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="auteur[email]" value="<%= task.auteur.email %>" required>
+    </fieldset>
 
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="auteur[email]" value="<%= task.auteur.email %>" required>
-      </fieldset>
 
       <!-- ETIQUETTE -->
       <label for="etiquettes">Étiquettes :</label>
       <input type="text" id="etiquettes" name="etiquettes" value="<%= task.etiquettes.join(' ') %>">
 
       <!-- SOUS TACHEs -->
-      <div id="sousTachesContainer"></div>
+      <div id="sousTachesContainer">
         <% task.sousTaches.forEach((sousTache, index) => { %>
-          <div class="sousTache"></div>
-        <label for="sousTacheTitre<%= index %>">Titre:</label>
-        <input type="text" id="sousTacheTitre<%= index %>" name="sousTaches[<%= index %>][titre]" value="<%= sousTache.titre %>">
+          <div class="sousTache">
+          <label for="sousTacheTitre<%= index %>">Titre:</label>
+          <input type="text" id="sousTacheTitre<%= index %>" name="sousTaches[<%= index %>][titre]" value="<%= sousTache.titre %>">
 
-        <label for="sousTacheStatut<%= index %>">Statut:</label>
-        <select id="sousTacheStatut<%= index %>" name="sousTaches[<%= index %>][statut]">
-          <option value="à faire" <%= sousTache.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
-          <option value="en cours" <%= sousTache.statut === 'en cours' ? 'selected' : '' %>>En cours</option>
-          <option value="terminée" <%= sousTache.statut === 'terminée' ? 'selected' : '' %>>Terminée</option>
-          <option value="annulée" <%= sousTache.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
-        </select>
+          <label for="sousTacheStatut<%= index %>">Statut:</label>
+          <select id="sousTacheStatut<%= index %>" name="sousTaches[<%= index %>][statut]">
+            <option value="à faire" <%= sousTache.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
+            <option value="en cours" <%= sousTache.statut === 'en cours' ? 'selected' : '' %>>En cours</option>
+            <option value="terminée" <%= sousTache.statut === 'terminée' ? 'selected' : '' %>>Terminée</option>
+            <option value="annulée" <%= sousTache.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
+          </select>
 
-        <label for="sousTacheEcheance<%= index %>">Échéance:</label>
-        <input type="date" id="sousTacheEcheance<%= index %>" name="sousTaches[<%= index %>][echeance]" value="<%= new Date(sousTache.echeance).toISOString().split('T')[0] %>">
+          <label for="sousTacheEcheance<%= index %>">Échéance:</label>
+          <input type="date" id="sousTacheEcheance<%= index %>" name="sousTaches[<%= index %>][echeance]" value="<%= new Date(sousTache.echeance).toISOString().split('T')[0] %>">
 
-        <button type="button" class="supprimerSousTache">Supprimer</button>
-          
+          <button type="button" class="supprimerSousTache">Supprimer</button>
+        </div>      
+      </div>    
         <% }) %>
       <button type="button" id="ajouterSousTache">Ajouter une sous-tâche</button>
 

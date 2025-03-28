@@ -63,7 +63,11 @@ function updateTaskList(tasks) {
           taskElement.classList.add("task");
           taskElement.innerHTML = `
               <h3>${task.titre}</h3>
-              <p>${task.description ? task.description : "Aucune description."}</p>
+
+
+              <p>${task.description && task.description.length > 35 ? task.description.substring(0, 35) + "..." : (task.description ? task.description : "Aucune description.")}</p>
+
+              
               <p><strong>Échéance:</strong> ${new Date(task.echeance).toLocaleDateString()}</p>
               <p><strong>Statut:</strong> ${task.statut}</p>
               <button onclick="deleteTask('${task._id}')" class="BtnDelette">Supprimer</button>

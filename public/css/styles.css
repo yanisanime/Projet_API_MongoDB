@@ -296,7 +296,11 @@ button {
 
 .subtasks li,
 .comments li {
-  background: rgb(211, 211, 211);
+  background: linear-gradient(
+    45deg,
+    rgba(50, 162, 249, 0.4),
+    rgba(54, 59, 247, 0.4)
+  );
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;

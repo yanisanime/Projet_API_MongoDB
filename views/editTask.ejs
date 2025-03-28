@@ -90,51 +90,59 @@
       <label for="etiquettes">Étiquettes :</label>
       <input type="text" id="etiquettes" name="etiquettes" value="<%= task.etiquettes.join(' ') %>">
 
-      <!-- SOUS TACHEs -->
-      <div id="sousTachesContainer">
-        <% task.sousTaches.forEach((sousTache, index) => { %>
-          <div class="sousTache">
-          <label for="sousTacheTitre<%= index %>">Titre:</label>
-          <input type="text" id="sousTacheTitre<%= index %>" name="sousTaches[<%= index %>][titre]" value="<%= sousTache.titre %>">
+ <!-- SOUS TACHES -->
+ <fieldset>
+  <legend>Sous-tâches</legend>
+  <div id="sousTachesContainer">
+    <% task.sousTaches.forEach((sousTache, index) => { %>
+      <div class="sousTache">
+        <label>Titre:</label>
+        <input type="text" name="sousTaches[<%= index %>][titre]" value="<%= sousTache.titre %>" required>
 
-          <label for="sousTacheStatut<%= index %>">Statut:</label>
-          <select id="sousTacheStatut<%= index %>" name="sousTaches[<%= index %>][statut]">
-            <option value="à faire" <%= sousTache.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
-            <option value="en cours" <%= sousTache.statut === 'en cours' ? 'selected' : '' %>>En cours</option>
-            <option value="terminée" <%= sousTache.statut === 'terminée' ? 'selected' : '' %>>Terminée</option>
-            <option value="annulée" <%= sousTache.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
-          </select>
+        <label>Statut:</label>
+        <select name="sousTaches[<%= index %>][statut]">
+          <option value="à faire" <%= sousTache.statut === 'à faire' ? 'selected' : '' %>>À faire</option>
+          <option value="en cours" <%= sousTache.statut === 'en cours' ? 'selected' : '' %>>En cours</option>
+          <option value="terminée" <%= sousTache.statut === 'terminée' ? 'selected' : '' %>>Terminée</option>
+          <option value="annulée" <%= sousTache.statut === 'annulée' ? 'selected' : '' %>>Annulée</option>
+        </select>
 
-          <label for="sousTacheEcheance<%= index %>">Échéance:</label>
-          <input type="date" id="sousTacheEcheance<%= index %>" name="sousTaches[<%= index %>][echeance]" value="<%= new Date(sousTache.echeance).toISOString().split('T')[0] %>">
+        <label>Échéance:</label>
+        <input type="date" name="sousTaches[<%= index %>][echeance]" 
+               value="<%= sousTache.echeance ? new Date(sousTache.echeance).toISOString().split('T')[0] : '' %>">
 
-          <button type="button" class="supprimerSousTache">Supprimer</button>
-        </div>      
-      </div>    
-        <% }) %>
-      <button type="button" id="ajouterSousTache">Ajouter une sous-tâche</button>
-
-      <!-- COMMENTAIRE -->
-
-      <!-- ICI on affiche les commentaires existants -->
-      <div id="commentairesExistants">
-        <h3>Commentaires :</h3>
-        <% task.commentaires.forEach((commentaire, index) => { %>
-          <div class="commentaire">
-        <p><strong>Commentaire <%= index + 1 %> :</strong> <%= commentaire %></p>
-          </div>
-        <% }) %>
+        <button type="button" class="supprimerSousTache">Supprimer</button>
       </div>
-
-      <!-- Ajouter un nouveau commentaire -->
-      <label for="nouveauCommentaire">Ajouter un commentaire :</label>
-      <textarea id="nouveauCommentaire" name="nouveauCommentaire"></textarea>
-
-
-
-
-      <button type="submit" class="btnEnregistrerModif">Enregistrer</button>
-    </form>
+    <% }); %>
   </div>
+  <button type="button" id="ajouterSousTache">Ajouter une sous-tâche</button>
+</fieldset>
+
+<!-- COMMENTAIRES -->
+<fieldset>
+  <legend>Commentaires</legend>
+  <div id="commentairesContainer">
+    <% task.commentaires.forEach((commentaire, index) => { %>
+      <div class="commentaire">
+        <label>Commentaire:</label>
+        <textarea name="commentaires[<%= index %>][contenu]" required><%= commentaire.contenu %></textarea>
+        
+        <input type="hidden" name="commentaires[<%= index %>][auteur][nom]" value="<%= commentaire.auteur.nom %>">
+        <input type="hidden" name="commentaires[<%= index %>][auteur][prenom]" value="<%= commentaire.auteur.prenom %>">
+        <input type="hidden" name="commentaires[<%= index %>][auteur][email]" value="<%= commentaire.auteur.email %>">
+        
+        <button type="button" class="supprimerCommentaire">Supprimer</button>
+      </div>
+    <% }); %>
+  </div>
+  <button type="button" id="ajouterCommentaire">Ajouter un commentaire</button>
+</fieldset>
+
+<button type="submit" class="btnEnregistrerModif">Enregistrer</button>
+</form>
+</div>
+
+<script src="/js/editTask.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>

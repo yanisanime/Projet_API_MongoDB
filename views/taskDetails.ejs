@@ -32,7 +32,7 @@
         
       <!-- ici je change le css dynamiquement pour que ce soit plus joli -->
       <!-- STATUT -->
-      <p><strong>Statut:</strong> 
+      <p><strong style="margin-right: 10px;">Statut:</strong> 
         <% if (task.statut.toLowerCase() === 'à faire') { %>
             <span class="status afaire">À faire</span>
           <% } else if (task.statut.toLowerCase() === 'en cours') { %>
@@ -45,7 +45,7 @@
       </p>
 
       <!-- PRIORITE -->
-      <p><strong>Priorité:</strong> 
+      <p><strong style="margin-right: 10px;">Priorité:</strong> 
           <% if (task.priorite.toLowerCase() === 'basse') { %>
               <span class="priority basse">Basse</span>
           <% } else if (task.priorite.toLowerCase() === 'moyenne') { %>
@@ -59,6 +59,12 @@
 
       <!-- CATEGORIE -->
       <p><strong>Catégorie:</strong> <%= task.categorie %></p>
+
+      <!-- AUTEUR -->
+      <p><strong>Auteur:</strong> <%= task.auteur.nom %>  <%= task.auteur.prenom %></p>
+
+      <p><strong>Créé le:</strong> <%= new Date(task.dateCreation).toLocaleDateString() %></p>
+
 
     </div>
 
@@ -126,6 +132,13 @@
         <p>Aucun commentaire.</p>
       <% } %>
     </div>
+
+      <!-- Ce btn est pour éditer la tâche -->
+  <div class="action-buttons">
+    <button onclick="location.href='/tasks/edit/<%= task._id %>'" class="BtnModifier">
+      <i class="fas fa-edit"></i> Modifier la tâche
+    </button>
+  </div>
 
   </div>
 

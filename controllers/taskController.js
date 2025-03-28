@@ -124,22 +124,41 @@ exports.getTaskById = async (req, res) => {
 
 
 exports.updateTask = async (req, res) => {
-    try {
+  try {
       const id = req.params.id;
-      const updatedTask = await Task.findByIdAndUpdate(id, req.body, { new: true });
+      const { 
+          titre, description, echeance, statut, priorite, 
+          auteur, categorie, etiquettes, sousTaches, commentaires 
+      } = req.body;
+
+      // Préparation des données
+      const updateData = {
+          titre,
+          description,
+          echeance: echeance ? new Date(echeance) : null,
+          statut,
+          priorite,
+          auteur,
+          categorie,
+          etiquettes: typeof etiquettes === 'string' ? etiquettes.split(',').map(e => e.trim()) : [],
+          sousTaches: sousTaches || [],
+          commentaires: commentaires || []
+      };
+
+      // Mise à jour de la tâche
+      const updatedTask = await Task.findByIdAndUpdate(id, updateData, { new: true });
       
       if (!updatedTask) {
-        return res.status(404).json({ message: "Tâche non trouvée" });
+          return res.status(404).json({ message: "Tâche non trouvée" });
       }
 
-      console.log("Tâche Modifier avec succès !");
-      res.redirect("/"); // Rediriger vers la page d'accueil
-
-    } catch (err) {
-      res.status(500).json({ error: err.message });
-    }
-  };
-  
+      console.log("Tâche modifiée avec succès !");
+      res.redirect("/tasks/" + id); // Rediriger vers la page de détails
+  } catch (err) {
+      console.error("Erreur lors de la modification de la tâche :", err);
+      res.status(500).send("Erreur serveur");
+  }
+};
 
 exports.editTask = async (req, res) => {
     try {

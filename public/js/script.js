@@ -67,7 +67,7 @@ function updateTaskList(tasks) {
               <p><strong>Échéance:</strong> ${new Date(task.echeance).toLocaleDateString()}</p>
               <p><strong>Statut:</strong> ${task.statut}</p>
               <button onclick="deleteTask('${task._id}')" class="BtnDelette">Supprimer</button>
-              <button onclick="location.href='/tasks/${task._id}'" class="BtnDetail">Voir Détails</button>
+              <button onclick="location.href='/tasks/${task._id}'" class="BtnDetail">Détails</button>
               <button onclick="location.href='/tasks/edit/${task._id}'" class="BtnModifier">Modifier</button>
           `;
           taskContainer.appendChild(taskElement);

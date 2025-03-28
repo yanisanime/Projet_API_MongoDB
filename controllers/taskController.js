@@ -153,7 +153,7 @@ exports.updateTask = async (req, res) => {
       }
 
       console.log("Tâche modifiée avec succès !");
-      res.redirect("/tasks/" + id); // Rediriger vers la page de détails
+      res.redirect("/"); // ICI on redirige vers la page d'accueil
   } catch (err) {
       console.error("Erreur lors de la modification de la tâche :", err);
       res.status(500).send("Erreur serveur");

@@ -1,0 +1,664 @@
+[{
+  "_id": {
+    "$oid": "67e6bae2b4f2152422db547a"
+  },
+  "titre": "Développement d’une API REST",
+  "description": "Implémenter une API REST avec Node.js et Express.",
+  "dateCreation": {
+    "$date": "2025-03-28T15:06:10.669Z"
+  },
+  "echeance": {
+    "$date": "2025-05-29T00:00:00.000Z"
+  },
+  "statut": "en cours",
+  "priorite": "haute",
+  "auteur": {
+    "nom": "Dupont ",
+    "prenom": "Jean ",
+    "email": "jean.dupont@example.com"
+  },
+  "categorie": "travail",
+  "etiquettes": [
+    "Backend API Express"
+  ],
+  "sousTaches": [
+    {
+      "titre": "Configurer le serveur Express",
+      "statut": "en cours",
+      "echeance": {
+        "$date": "2025-04-17T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bae2b4f2152422db547b"
+      }
+    },
+    {
+      "titre": "Ajouter la gestion des erreurs",
+      "statut": "terminée",
+      "echeance": {
+        "$date": "2025-04-07T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bae2b4f2152422db547c"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Dupont ",
+        "prenom": "Jean ",
+        "email": "jean.dupont@example.com"
+      },
+      "contenu": "Vérifier la compatibilité avec MongoDB.",
+      "_id": {
+        "$oid": "67e6bae2b4f2152422db547d"
+      },
+      "date": {
+        "$date": "2025-03-28T15:06:10.676Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bb42b4f2152422db5487"
+  },
+  "titre": "Correction de bugs sur l’application mobile",
+  "description": "Identifier et corriger les bugs signalés par les utilisateurs.",
+  "dateCreation": {
+    "$date": "2025-03-28T15:07:46.928Z"
+  },
+  "echeance": {
+    "$date": "2025-05-06T00:00:00.000Z"
+  },
+  "statut": "à faire",
+  "priorite": "critique",
+  "auteur": {
+    "nom": "Curie",
+    "prenom": "Marie",
+    "email": "marie.curie@example.com"
+  },
+  "categorie": "travail",
+  "etiquettes": [
+    "Bug Mobile Debug"
+  ],
+  "sousTaches": [
+    {
+      "titre": "Vérifier les logs d’erreur",
+      "statut": "terminée",
+      "echeance": {
+        "$date": "2025-06-04T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6c3dc163442fd5bb7febf"
+      }
+    },
+    {
+      "titre": "Corriger le crash sur l’écran d’accueil",
+      "statut": "en cours",
+      "echeance": {
+        "$date": "2025-05-07T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6c3dc163442fd5bb7fec0"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Curie",
+        "prenom": "Marie",
+        "email": "marie.curie@example.com"
+      },
+      "contenu": "Priorité aux bugs bloquants",
+      "_id": {
+        "$oid": "67e6c3dc163442fd5bb7fec1"
+      },
+      "date": {
+        "$date": "2025-03-28T15:44:28.838Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bb8db4f2152422db549d"
+  },
+  "titre": "Mise à jour du site web de l’entreprise de web",
+  "description": "Moderniser le design et améliorer les performances",
+  "dateCreation": {
+    "$date": "2025-03-28T15:09:01.393Z"
+  },
+  "echeance": {
+    "$date": "2025-01-30T00:00:00.000Z"
+  },
+  "statut": "en cours",
+  "priorite": "moyenne",
+  "auteur": {
+    "nom": "Martin ",
+    "prenom": "Lucas ",
+    "email": "lucas.martin@example.com"
+  },
+  "categorie": "personnel",
+  "etiquettes": [
+    "Frontend UI/UX SEO"
+  ],
+  "sousTaches": [
+    {
+      "titre": "Analyser les performances actuelles",
+      "statut": "annulée",
+      "echeance": {
+        "$date": "2025-05-07T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bb8db4f2152422db549e"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Martin ",
+        "prenom": "Lucas ",
+        "email": "lucas.martin@example.com"
+      },
+      "contenu": "Penser à optimiser le chargement des images",
+      "_id": {
+        "$oid": "67e6bb8db4f2152422db549f"
+      },
+      "date": {
+        "$date": "2025-03-28T15:09:01.394Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bc04b4f2152422db54b5"
+  },
+  "titre": "Rédaction de la documentation technique",
+  "description": "Rédiger la documentation pour le projet X.",
+  "dateCreation": {
+    "$date": "2025-03-28T15:11:00.252Z"
+  },
+  "echeance": {
+    "$date": "2025-07-19T00:00:00.000Z"
+  },
+  "statut": "à faire",
+  "priorite": "haute",
+  "auteur": {
+    "nom": "Laurent ",
+    "prenom": "Sophie ",
+    "email": "sophie.laurent@example.com"
+  },
+  "categorie": "autre",
+  "etiquettes": [
+    ""
+  ],
+  "sousTaches": [
+    {
+      "titre": "Décrire l’architecture du projet",
+      "statut": "en cours",
+      "echeance": {
+        "$date": "2025-05-30T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bc04b4f2152422db54b6"
+      }
+    },
+    {
+      "titre": "Faire un truc important",
+      "statut": "terminée",
+      "echeance": {
+        "$date": "2025-05-29T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bc04b4f2152422db54b7"
+      }
+    },
+    {
+      "titre": "Ajouter des exemples d’utilisation",
+      "statut": "en cours",
+      "echeance": {
+        "$date": "2025-10-31T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bc04b4f2152422db54b8"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Laurent ",
+        "prenom": "Sophie ",
+        "email": "sophie.laurent@example.com"
+      },
+      "contenu": "Utiliser Markdown pour le formatage",
+      "_id": {
+        "$oid": "67e6bc04b4f2152422db54b9"
+      },
+      "date": {
+        "$date": "2025-03-28T15:11:00.253Z"
+      }
+    },
+    {
+      "auteur": {
+        "nom": "Laurent ",
+        "prenom": "Sophie ",
+        "email": "sophie.laurent@example.com"
+      },
+      "contenu": "bon j'ai faim",
+      "_id": {
+        "$oid": "67e6bc04b4f2152422db54ba"
+      },
+      "date": {
+        "$date": "2025-03-28T15:11:00.253Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bc37b4f2152422db54da"
+  },
+  "titre": "Sauvegarde et mise à jour du serveur de production",
+  "description": "Faire une sauvegarde complète avant la mise à jour du serveur.",
+  "dateCreation": {
+    "$date": "2025-03-28T15:11:51.218Z"
+  },
+  "echeance": {
+    "$date": "2025-07-25T00:00:00.000Z"
+  },
+  "statut": "à faire",
+  "priorite": "basse",
+  "auteur": {
+    "nom": "Durant",
+    "prenom": "Paul ",
+    "email": "paul.durant@example.com"
+  },
+  "categorie": "travail",
+  "etiquettes": [
+    "DevOps Serveur Sécurité"
+  ],
+  "sousTaches": [
+    {
+      "titre": "Effectuer un backup",
+      "statut": "à faire",
+      "echeance": {
+        "$date": "2025-04-17T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bc37b4f2152422db54db"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Durant",
+        "prenom": "Paul ",
+        "email": "paul.durant@example.com"
+      },
+      "contenu": "Tout s'est bien passé, aucun downtime",
+      "_id": {
+        "$oid": "67e6bc37b4f2152422db54dc"
+      },
+      "date": {
+        "$date": "2025-03-28T15:11:51.218Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bca0b4f2152422db5500"
+  },
+  "titre": "Installation d’un nouveau pare-feu",
+  "description": "Installer et configurer un pare-feu pour sécuriser le réseau. Faire quelque chose pour le radiateur et etc...",
+  "dateCreation": {
+    "$date": "2025-03-28T15:13:36.700Z"
+  },
+  "echeance": {
+    "$date": "2025-05-01T00:00:00.000Z"
+  },
+  "statut": "à faire",
+  "priorite": "critique",
+  "auteur": {
+    "nom": "Lefebvre ",
+    "prenom": "Antoine",
+    "email": "antoine.lefebvre@example.com"
+  },
+  "categorie": "autre",
+  "etiquettes": [
+    "Sécurité Réseau Firewall"
+  ],
+  "sousTaches": [
+    {
+      "titre": "Sélectionner un pare-feu adapté",
+      "statut": "terminée",
+      "echeance": {
+        "$date": "2025-04-23T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bca0b4f2152422db5501"
+      }
+    },
+    {
+      "titre": "Configurer les règles de filtrage",
+      "statut": "annulée",
+      "echeance": null,
+      "_id": {
+        "$oid": "67e6bca0b4f2152422db5502"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Lefebvre ",
+        "prenom": "Antoine",
+        "email": "antoine.lefebvre@example.com"
+      },
+      "contenu": "Penser à tester les connexions après l'installation",
+      "_id": {
+        "$oid": "67e6bca0b4f2152422db5503"
+      },
+      "date": {
+        "$date": "2025-03-28T15:13:36.700Z"
+      }
+    },
+    {
+      "auteur": {
+        "nom": "Lefebvre ",
+        "prenom": "Antoine",
+        "email": "antoine.lefebvre@example.com"
+      },
+      "contenu": "Que quelqu'un achète du café !!!!!",
+      "_id": {
+        "$oid": "67e6bca0b4f2152422db5504"
+      },
+      "date": {
+        "$date": "2025-03-28T15:13:36.700Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bce3b4f2152422db5530"
+  },
+  "titre": "Implémentation d’un système d’authentification OAuth",
+  "description": "Ajouter l’authentification via Google et GitHub.",
+  "dateCreation": {
+    "$date": "2025-03-28T15:14:43.177Z"
+  },
+  "echeance": {
+    "$date": "2022-10-14T00:00:00.000Z"
+  },
+  "statut": "annulée",
+  "priorite": "basse",
+  "auteur": {
+    "nom": "Bernard ",
+    "prenom": "Nathalie ",
+    "email": "nathalie.bernard@example.com"
+  },
+  "categorie": "autre",
+  "etiquettes": [
+    ""
+  ],
+  "sousTaches": [
+    {
+      "titre": "Configurer Google OAuth",
+      "statut": "en cours",
+      "echeance": {
+        "$date": "2025-05-14T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bce3b4f2152422db5531"
+      }
+    },
+    {
+      "titre": "Tester l’authentification GitHub",
+      "statut": "terminée",
+      "echeance": {
+        "$date": "2025-03-25T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bce3b4f2152422db5532"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Bernard ",
+        "prenom": "Nathalie ",
+        "email": "nathalie.bernard@example.com"
+      },
+      "contenu": "Prévoir une gestion des erreurs robustes",
+      "_id": {
+        "$oid": "67e6bce3b4f2152422db5533"
+      },
+      "date": {
+        "$date": "2025-03-28T15:14:43.178Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bd22b4f2152422db5565"
+  },
+  "titre": "Optimisation de la base de données",
+  "description": "Analyser et optimiser les requêtes SQL pour améliorer la performance.",
+  "dateCreation": {
+    "$date": "2025-03-28T15:15:46.609Z"
+  },
+  "echeance": {
+    "$date": "2017-12-08T00:00:00.000Z"
+  },
+  "statut": "terminée",
+  "priorite": "basse",
+  "auteur": {
+    "nom": "Robert ",
+    "prenom": "David ",
+    "email": "david.robert@example.com"
+  },
+  "categorie": "travail",
+  "etiquettes": [
+    "Base de données"
+  ],
+  "sousTaches": [
+    {
+      "titre": "Identifier les requêtes lentes",
+      "statut": "terminée",
+      "echeance": {
+        "$date": "2025-02-06T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bd22b4f2152422db5566"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Robert ",
+        "prenom": "David ",
+        "email": "david.robert@example.com"
+      },
+      "contenu": "tout est terminé",
+      "_id": {
+        "$oid": "67e6bd22b4f2152422db5567"
+      },
+      "date": {
+        "$date": "2025-03-28T15:15:46.609Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bd64b4f2152422db559d"
+  },
+  "titre": "Configuration d’un CI/CD avec GitHub Actions",
+  "description": "Automatiser les tests et le déploiement du projet.",
+  "dateCreation": {
+    "$date": "2025-03-28T15:16:52.939Z"
+  },
+  "echeance": {
+    "$date": "2025-06-13T00:00:00.000Z"
+  },
+  "statut": "en cours",
+  "priorite": "haute",
+  "auteur": {
+    "nom": "Morel ",
+    "prenom": "Julien ",
+    "email": "julien.morel@example.com"
+  },
+  "categorie": "autre",
+  "etiquettes": [
+    "DevOps CI/CD Automatisation"
+  ],
+  "sousTaches": [
+    {
+      "titre": "Créer un workflow GitHub Actions",
+      "statut": "terminée",
+      "echeance": {
+        "$date": "2025-04-24T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bd75b4f2152422db55e4"
+      }
+    },
+    {
+      "titre": "Tester l'intégration avec AWS",
+      "statut": "annulée",
+      "echeance": {
+        "$date": "2025-06-13T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bd75b4f2152422db55e5"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Morel ",
+        "prenom": "Julien ",
+        "email": "julien.morel@example.com"
+      },
+      "contenu": "Vérifier la compatibilité avec Docker",
+      "_id": {
+        "$oid": "67e6bd75b4f2152422db55e6"
+      },
+      "date": {
+        "$date": "2025-03-28T15:17:09.173Z"
+      }
+    },
+    {
+      "auteur": {
+        "nom": "Morel ",
+        "prenom": "Julien ",
+        "email": "julien.morel@example.com"
+      },
+      "contenu": "Je ne sais plus quoi dire",
+      "_id": {
+        "$oid": "67e6bd75b4f2152422db55e7"
+      },
+      "date": {
+        "$date": "2025-03-28T15:17:09.173Z"
+      }
+    },
+    {
+      "auteur": {
+        "nom": "Morel ",
+        "prenom": "Julien ",
+        "email": "julien.morel@example.com"
+      },
+      "contenu": "C'est long de faire des tests",
+      "_id": {
+        "$oid": "67e6bd75b4f2152422db55e8"
+      },
+      "date": {
+        "$date": "2025-03-28T15:17:09.173Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67e6bdb1b4f2152422db5633"
+  },
+  "titre": "Formation interne sur les bonnes pratiques de sécurité",
+  "description": "Organiser une formation pour sensibiliser les développeurs aux failles courantes",
+  "dateCreation": {
+    "$date": "2025-03-28T15:18:09.076Z"
+  },
+  "echeance": {
+    "$date": "2025-07-18T00:00:00.000Z"
+  },
+  "statut": "en cours",
+  "priorite": "haute",
+  "auteur": {
+    "nom": "Fontaine ",
+    "prenom": "Claire ",
+    "email": "claire.fontaine@example.com"
+  },
+  "categorie": "personnel",
+  "etiquettes": [
+    "Sécurité Formation Développement"
+  ],
+  "sousTaches": [
+    {
+      "titre": "Préparer les supports de formation",
+      "statut": "terminée",
+      "echeance": {
+        "$date": "2026-10-08T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "67e6bdb1b4f2152422db5634"
+      }
+    }
+  ],
+  "commentaires": [
+    {
+      "auteur": {
+        "nom": "Fontaine ",
+        "prenom": "Claire ",
+        "email": "claire.fontaine@example.com"
+      },
+      "contenu": "Mettre l’accent sur la prévention des attaques XSS et SQL Injection",
+      "_id": {
+        "$oid": "67e6bdb1b4f2152422db5635"
+      },
+      "date": {
+        "$date": "2025-03-28T15:18:09.078Z"
+      }
+    }
+  ],
+  "historiqueModifications": [],
+  "__v": 0
+}]

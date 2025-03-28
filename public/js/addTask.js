@@ -44,12 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
         commentaireDiv.classList.add('commentaire');
   
         commentaireDiv.innerHTML = `
-          <label>Commentaire:</label>
-          <textarea name="commentaires[${index}][texte]" required></textarea>
-  
-          <button type="button" class="supprimerCommentaire">Supprimer</button>
-        `;
-  
+        <label>Commentaire:</label>
+        <textarea name="commentaires[${index}][contenu]" required></textarea>
+        
+        <input type="hidden" name="commentaires[${index}][auteur][nom]" value="${document.getElementById('nom').value}">
+        <input type="hidden" name="commentaires[${index}][auteur][prenom]" value="${document.getElementById('prenom').value}">
+        <input type="hidden" name="commentaires[${index}][auteur][email]" value="${document.getElementById('email').value}">
+      
+        <button type="button" class="supprimerCommentaire">Supprimer</button>
+      `;
+        
         container.appendChild(commentaireDiv);
       });
     }

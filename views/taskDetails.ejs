@@ -116,7 +116,7 @@
         <ul>
           <% task.commentaires.forEach(commentaire => { %>
             <li>
-              <strong> <%= commentaire.auteur.nom %> :</strong> 
+              <strong> Auteur : <%= commentaire.auteur.nom %></strong> 
               <p><%= commentaire.contenu %></p>
               <small><%= new Date(commentaire.date).toLocaleDateString() %></small>
             </li>

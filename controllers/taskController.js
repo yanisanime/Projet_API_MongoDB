@@ -54,6 +54,8 @@ exports.getTasks = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+
 //Ajouter une nouvelle tâche
 exports.createTask = async (req, res) => {
   try {
@@ -62,36 +64,36 @@ exports.createTask = async (req, res) => {
       auteur, categorie, etiquettes, sousTaches, commentaires 
     } = req.body;
 
-    // Création d'une nouvelle tâche avec validation des champs optionnels
+    // Transformez les étiquettes si nécessaire
+    const etiquettesArray = typeof etiquettes === 'string' 
+      ? etiquettes.split(',').map(e => e.trim()) 
+      : [];
+
+    // Créez la nouvelle tâche
     const newTask = new Task({
       titre,
       description,
-      echeance,
+      echeance: echeance ? new Date(echeance) : null,
       statut,
       priorite,
       auteur,
       categorie,
-      etiquettes: etiquettes ? etiquettes.split(',') : [],
-      sousTaches: sousTaches ? sousTaches.map(st => ({
-        titre: st.titre,
-        statut: st.statut,
-        echeance: st.echeance
-      })) : [],
-      commentaires: commentaires ? commentaires.map(comment => ({
-        auteur: comment.auteur,
-        contenu: comment.contenu,
-      })) : [],
+      etiquettes: etiquettesArray,
+      sousTaches: sousTaches || [],
+      commentaires: commentaires || [],
+      dateCreation: new Date()
     });
 
-    await newTask.save(); // Enregistrer la tâche dans MongoDB
+    await newTask.save();
 
     console.log("Tâche ajoutée avec succès !");
-    res.redirect("/"); // Rediriger vers la page d'accueil
+    res.redirect("/");
   } catch (err) {
     console.error("Erreur lors de l'ajout de la tâche :", err);
     res.status(500).send("Erreur serveur");
   }
 };
+
 
 //Supprimer une tâche
 exports.deleteTask = async (req, res) => {

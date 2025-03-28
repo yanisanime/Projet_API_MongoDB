@@ -149,6 +149,16 @@ button {
   gap: 5px;
 }
 
+.commentaire {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 /* Pour la page d'accueil pour afficher les tache  */
 
 #taskContainer {
@@ -490,11 +500,13 @@ button {
   background-color: #a81d2b;
 }
 
-.supprimerSousTache {
+.supprimerSousTache,
+.supprimerCommentaire {
   background-color: #dc3545;
 }
 
-.supprimerSousTache:hover {
+.supprimerSousTache:hover,
+.supprimerCommentaire:hover {
   background-color: #a81d2b;
 }
 

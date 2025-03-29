@@ -20,13 +20,6 @@ Ce projet est une application web complète de gestion de tâches, offrant :
 
 ---
 
-
-### Configuration
-```env
-MONGO_URI=votre_uri_mongodb
-PORT=5000
-```
-
 ### Lancement
 ```bash
 npm run dev

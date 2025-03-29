@@ -1,5 +1,7 @@
 # Gestionnaire de Tâches - Documentation
 
+## Yanis MERIEM A1
+
 ## Description du Projet
 Ce projet est une application web complète de gestion de tâches, offrant :
 - Un backend Node.js/Express connecté à MongoDB.
